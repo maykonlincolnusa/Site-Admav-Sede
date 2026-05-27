@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossas Igrejas — Família ADMAV 2026</title>
+    <meta name="description" content="Encontre a ADMAV / MAV Church mais próxima. Uma família, muitos lugares. Venha viver o Ano da Colheita.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ADMAV Igrejas">
+    <link rel="apple-touch-icon" href="media/icon-192.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon"><img src="media/logo-oficial-admav.jpeg" alt="Logo oficial ADMAV"></div>
+                <div class="logo-text"><span class="logo-name">ADMAV</span><span class="logo-sub">Filiais</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="sede.html" class="nav-link">Sede</a></li>
+                <li><a href="nossas-igrejas.html" class="nav-link active">Igrejas</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-toggle-app" id="navToggle" aria-label="Menu"><i data-lucide="menu"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="igrejas-hero">
+        <div class="igrejas-hero-bg">
+            <img src="media/admav sede/SaveClip.App_671814920_18356585527232965_6686315749400975427_n.jpg" alt="Família ADMAV reunida">
+            <div class="igrejas-hero-overlay"></div>
+        </div>
+        <div class="igrejas-hero-content">
+            <div class="hero-badge"><i data-lucide="sparkles"></i><span>Família ADMAV 2026</span></div>
+            <h1>Nossas Igrejas<br><span class="text-gradient-light">Ano da Colheita</span></h1>
+            <p>Uma igreja que abençoa famílias e vive o sobrenatural de Deus. Encontre a ADMAV ou MAV Church mais próxima de você.</p>
+            <div class="igrejas-search">
+                <i data-lucide="search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar por igreja ou bairro...">
+            </div>
+        </div>
+    </header>
+
+    <!-- GRID DE IGREJAS -->
+    <main style="padding: var(--space-3xl) 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Encontre sua Igreja</span>
+                <h2 class="section-title">Conheça nossas <span class="text-gradient">filiais</span></h2>
+                <p class="section-description">Selecione uma filial para ver horários, endereço e formas de nos visitar.</p>
+            </div>
+
+            <!-- No Results -->
+            <div class="no-results" id="noResults">
+                <i data-lucide="map-pin-off"></i>
+                <h3>Igreja não encontrada</h3>
+                <p>Não encontramos nenhuma filial com esse nome ou neste bairro. Tente outro termo!</p>
+            </div>
+
+            <!-- Church Grid -->
+            <div class="church-grid" id="churchGrid"></div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-gradient"></div>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Família ADMAV — Ministério Mananciais de Vida. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CHURCH DETAIL MODAL -->
+    <div class="church-modal" id="churchModal">
+        <div class="church-modal-overlay" onclick="closeModal()"></div>
+        <div class="church-modal-content">
+            <button class="church-modal-close" onclick="closeModal()"><i data-lucide="x"></i></button>
+            <div class="church-modal-header">
+                <img id="modalImg" src="" alt="Capa Igreja">
+                <div class="church-modal-header-overlay"></div>
+                <div class="church-modal-header-info">
+                    <div id="modalBadge" class="church-card-badge">Sede Global</div>
+                    <h2 id="modalTitle" style="font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:white;">Igreja</h2>
+                </div>
+            </div>
+            <div class="church-modal-body">
+                <div class="church-modal-bio" id="modalBio"></div>
+                <div class="church-modal-details">
+                    <div class="church-modal-detail-card">
+                        <div class="church-modal-detail-header"><i data-lucide="clock"></i><h4>Nossos Horários</h4></div>
+                        <div id="modalSchedule"></div>
+                    </div>
+                    <div class="church-modal-detail-card">
+                        <div class="church-modal-detail-header"><i data-lucide="map-pin"></i><h4>Localização</h4></div>
+                        <p id="modalAddress" style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:12px;"></p>
+                        <a id="modalMapBtn" href="#" target="_blank" class="btn btn-glass btn-sm btn-full">Ver no Google Maps</a>
+                    </div>
+                </div>
+                <div style="margin-bottom:var(--space-xl);">
+                    <h4 style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:12px;">Destaques da Congregação</h4>
+                    <div class="church-modal-tags" id="modalTags"></div>
+                </div>
+                <div class="church-modal-actions">
+                    <a id="modalWpp" href="#" target="_blank" class="btn btn-whatsapp hidden">
+                        <i data-lucide="message-circle"></i> Falar no WhatsApp
+                    </a>
+                    <a id="modalVisit" href="#" class="btn btn-primary" style="flex:1;">Quero Visitar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PWA Shell -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="side-drawer" id="sideDrawer">
+        <div class="drawer-header"><span class="logo-name">ADMAV</span><button class="drawer-close" id="closeDrawer">&times;</button></div>
+        <nav class="drawer-nav">
+            <a href="index.html" class="nav-link">Início</a>
+            <a href="sede.html" class="nav-link">ADMAV Sede</a>
+            <a href="nossas-igrejas.html" class="nav-link active">Nossas Igrejas</a>
+            <a href="programa-casados.html" class="nav-link">Programa Casados</a>
+        </nav>
+    </div>
+    <nav class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item"><i data-lucide="home"></i><span>Início</span></a>
+        <a href="sede.html" class="bottom-nav-item"><i data-lucide="church"></i><span>Sede</span></a>
+        <a href="nossas-igrejas.html" class="bottom-nav-item active"><i data-lucide="map-pin"></i><span>Igrejas</span></a>
+        <a href="programa-casados.html" class="bottom-nav-item"><i data-lucide="heart"></i><span>Casados</span></a>
+    </nav>
+
+    <script src="script.js"></script>
+    <script>
+        // Church Data
+        const churches = [
+            {
+                id: "sede", name: "ADMAV SEDE",
+                address: "Rua Calmon, 28 — Curicica/RJ", bairro: "Curicica",
+                shortDesc: "Igreja matriz pentecostal com forte louvor, adoração, batismos.",
+                bio: "2026 • O Ano da Colheita",
+                schedule: ["Terças às 19h", "Domingos às 10h e 18h30", "Mini-vigília do Sobrenatural"],
+                tags: ["Forte Louvor", "Adoração", "Batismos", "Família no Altar", "Level Kids"],
+                instagram: "https://instagram.com/admavsede",
+                img: "media/admav sede/SaveClip.App_672424327_18356585497232965_710910378571419379_n.jpg",
+                mapLink: "https://maps.app.goo.gl/search/Rua+Calmon+28+Curicica",
+                isMatriz: true, phone: null, pageLink: "sede.html"
+            },
+            {
+                id: "colonia", name: "ADMAV Colônia",
+                address: "Colônia — Zona Oeste do Rio de Janeiro", bairro: "Colônia Zona Oeste",
+                shortDesc: "Quarta Pink, Domingo de Ceia e atividades para a Família.",
+                bio: "2026 Ano da Colheita",
+                schedule: ["Consulte programação no Instagram"],
+                tags: ["Quarta Pink", "Domingo de Ceia", "Culto Kids", "Dia com Deus", "Culto de Mulheres", "Evangelismo"],
+                instagram: "https://instagram.com/admavcolonia",
+                img: "media/admav colonia/SaveClip.App_683250763_18196761856360741_241519402424623378_n.jpg",
+                mapLink: "https://maps.google.com/?q=Colonia+Rio+de+Janeiro",
+                isMatriz: false, phone: null, pageLink: "colonia.html"
+            },
+            {
+                id: "campogrande", name: "ADMAV Campo Grande",
+                address: "Campo Grande — Zona Oeste do Rio de Janeiro", bairro: "Campo Grande Zona Oeste",
+                shortDesc: "Avivamento, consagração e formação teológica.",
+                bio: "2026 | Ano da Colheita",
+                schedule: ["Culto Jovem", "Encontros de Mulheres"],
+                tags: ["Avivamento", "Consagração", "Batismos", "Curso Teologia", "Culto Jovem"],
+                instagram: "https://instagram.com/admavcampogrande",
+                img: "media/admav campo grande/SaveClip.App_631872320_18432934903115153_4777907704079023162_n.jpg",
+                mapLink: "https://maps.google.com/?q=Campo+Grande+RJ",
+                isMatriz: false, phone: "5521997774344", pageLink: "campo-grande.html"
+            },
+            {
+                id: "freguesia", name: "ADMAV Freguesia",
+                address: "Estrada Pau Ferro, 1353 — Freguesia, Jacarepaguá/RJ", bairro: "Freguesia Jacarepagua",
+                shortDesc: "Uma igreja que abençoa famílias e vive o sobrenatural.",
+                bio: "Evangelical Church 2026 • O Ano Da Colheita",
+                schedule: ["Terças 9:30h", "Quartas de Intercessão", "Domingos", "Culto de Mulheres/Casais"],
+                tags: ["Abençoa Famílias", "Sobrenatural de Deus", "Casais", "Mulheres", "Intercessão"],
+                instagram: "https://instagram.com/admavfreguesia",
+                img: "media/icon-512.png",
+                mapLink: "https://maps.google.com/?q=Estr.+Pau+Ferro,+1353+-+Freguesia",
+                isMatriz: false, phone: null, pageLink: "freguesia.html"
+            },
+            {
+                id: "pracaseca", name: "ADMAV Praça Seca",
+                address: "Estr. Comandante Luís Souto, 453 — Praça Seca/RJ", bairro: "Praca Seca",
+                shortDesc: "Campanha 'A Adoração Atrai Milagre' — ênfase em obediência.",
+                bio: "A Adoração Atrai Milagre e move o coração de Deus.",
+                schedule: ["Quarta Profética às 19h30", "Mini Vigília", "Culto de Domingo"],
+                tags: ["Milagres", "Louvor", "Filhas do Rei", "Quarta Profética", "Vigília"],
+                instagram: "https://instagram.com/admav.pracaseca",
+                img: "media/admav praça seca/SaveClip.App_613053287_17972225258992706_8015187704951291452_n.jpg",
+                mapLink: "https://maps.google.com/?q=Estr.+Comandante+Luis+Souto,+453",
+                isMatriz: false, phone: null, pageLink: "praca-seca.html"
+            },
+            {
+                id: "recreio", name: "MAV Church Recreio",
+                address: "Recreio dos Bandeirantes/RJ", bairro: "Recreio",
+                shortDesc: "Perfil mais jovem e contemporâneo. Puro estilo MAV Church.",
+                bio: "Uma nova experiência espiritual na Orla Carioca.",
+                schedule: ["Acompanhe nossos horários nas redes sociais."],
+                tags: ["Jovem", "Contemporâneo", "Alegria e Vida"],
+                instagram: "https://instagram.com/mavchurchrecreio",
+                img: "media/Mav Recreio/SaveClip.App_671781140_18084230936527171_8575441723802691773_n.jpg",
+                mapLink: "https://maps.google.com/?q=Recreio+dos+Bandeirantes",
+                isMatriz: false, phone: null, pageLink: "recreio.html"
+            }
+        ];
+
+        const grid = document.getElementById('churchGrid');
+        const searchInput = document.getElementById('searchInput');
+        const noResults = document.getElementById('noResults');
+        const modal = document.getElementById('churchModal');
+
+        function renderCards() {
+            grid.innerHTML = '';
+            churches.forEach((c, i) => {
+                const badge = c.isMatriz ? `<div class="church-card-badge">Sede Global</div>` : '';
+                const times = c.schedule.length ? `<div class="church-card-schedule"><i data-lucide="clock"></i><span>${c.schedule.join(' | ')}</span></div>` : '';
+
+                grid.insertAdjacentHTML('beforeend', `
+                    <article class="church-card" data-name="${c.name.toLowerCase()}" data-bairro="${c.bairro.toLowerCase()}">
+                        <div class="church-card-img" onclick="openModal(${i})">
+                            <img src="${c.img}" alt="${c.name}">
+                            <div class="church-card-img-overlay"></div>
+                            ${badge}
+                            <div class="church-card-hover-label"><span>Ver Detalhes</span></div>
+                        </div>
+                        <div class="church-card-body">
+                            <h3>${c.name}</h3>
+                            <div class="church-card-address"><i data-lucide="map-pin"></i><span>${c.address}</span></div>
+                            <p class="church-card-desc">${c.shortDesc}</p>
+                            ${times}
+                            <div class="church-card-actions">
+                                <button onclick="openModal(${i})" class="btn btn-glass">Planejar Visita</button>
+                                <a href="${c.instagram}" target="_blank" class="btn-icon"><i data-lucide="instagram"></i></a>
+                            </div>
+                        </div>
+                    </article>
+                `);
+            });
+            lucide.createIcons();
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase().trim();
+            let visible = 0;
+            document.querySelectorAll('.church-card').forEach(card => {
+                const match = card.dataset.name.includes(term) || card.dataset.bairro.includes(term);
+                card.style.display = match ? 'flex' : 'none';
+                if (match) visible++;
+            });
+            noResults.classList.toggle('visible', visible === 0);
+        });
+
+        function openModal(index) {
+            const d = churches[index];
+            document.getElementById('modalImg').src = d.img;
+            document.getElementById('modalTitle').textContent = d.name;
+            document.getElementById('modalBio').textContent = `"${d.bio}"`;
+            document.getElementById('modalSchedule').innerHTML = d.schedule.map(s => `<div class="church-modal-schedule-item"><i data-lucide="check"></i><span>${s}</span></div>`).join('');
+            document.getElementById('modalAddress').textContent = d.address;
+            document.getElementById('modalMapBtn').href = d.mapLink;
+            document.getElementById('modalBadge').style.display = d.isMatriz ? 'inline-block' : 'none';
+            document.getElementById('modalTags').innerHTML = d.tags.map(t => `<span class="church-modal-tag">${t}</span>`).join('');
+            document.getElementById('modalVisit').href = d.pageLink;
+
+            const wpp = document.getElementById('modalWpp');
+            if (d.phone) {
+                wpp.href = `https://wa.me/${d.phone}?text=Olá! A Paz do Senhor! Gostaria de visitar a igreja!`;
+                wpp.classList.remove('hidden');
+            } else {
+                wpp.classList.add('hidden');
+            }
+
+            lucide.createIcons();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+        document.addEventListener('DOMContentLoaded', renderCards);
+    </script>
+
+</body>
+</html>

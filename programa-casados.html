@@ -1,0 +1,1010 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casados Para Sempre — ADMAV</title>
+    <meta name="description" content="Programa Casados Para Sempre: fortalecendo lares, restaurando alianças e transformando famílias sob a direção do Pr. Fábio e Pra. Michelle. Uma iniciativa ADMAV.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ADMAV Casados">
+    <link rel="apple-touch-icon" href="media/icon-192.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page-specific enhancements */
+        .casados-photo-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            margin-top: calc(-1 * (var(--navbar-height) + var(--safe-area-top)));
+        }
+        .casados-photo-hero img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+        .casados-photo-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                rgba(0,0,0,0.1) 0%,
+                rgba(0,0,0,0.3) 30%,
+                rgba(0,0,0,0.85) 75%,
+                #000000 100%
+            );
+        }
+        .casados-hero-inner {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: var(--space-2xl) var(--space-xl);
+            padding-bottom: var(--space-3xl);
+            text-align: center;
+        }
+        .leader-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+        .leader-photo-frame {
+            position: relative;
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.08);
+            aspect-ratio: 3/4;
+        }
+        .leader-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .leader-photo-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--space-xl) var(--space-lg);
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+        .leader-info h3 {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.15;
+            margin-bottom: var(--space-md);
+        }
+        .leader-info p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: var(--space-lg);
+        }
+        .leader-info .leader-verse {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .leader-info .leader-verse cite {
+            display: block;
+            margin-top: var(--space-sm);
+            font-style: normal;
+            color: var(--primary-gold);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-2xl);
+        }
+        .impact-stat {
+            text-align: center;
+            padding: var(--space-xl);
+        }
+        .impact-stat .impact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+            color: white;
+        }
+        .impact-stat .impact-icon svg { width: 22px; height: 22px; }
+        .impact-stat h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .impact-stat p { color: var(--text-secondary); font-size: 0.85rem; }
+        .photo-banner {
+            position: relative;
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            height: 380px;
+            margin: var(--space-2xl) 0;
+        }
+        .photo-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .photo-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: var(--space-xl);
+        }
+        .photo-banner-text {
+            background: rgba(10, 17, 40, 0.85);
+            backdrop-filter: blur(10px);
+            padding: var(--space-md) var(--space-lg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--glass-border);
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .testimony-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            text-align: center;
+        }
+        .testimony-card .testimony-quote {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: var(--space-md);
+        }
+        .testimony-card .testimony-author {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        @media (max-width: 768px) {
+            .leader-showcase { grid-template-columns: 1fr; }
+            .leader-photo-frame { aspect-ratio: 4/3; max-height: 350px; }
+            .photo-banner { height: 260px; }
+        }
+
+        .casados-page {
+            --casados-cream: #F5F1EA;
+            --casados-ink: #060504;
+            --casados-brown: #4A2D1E;
+            --casados-caramel: #B98A55;
+            --casados-champagne: #D8C0A0;
+            background:
+                linear-gradient(180deg, #000000 0%, #080503 28%, #14100D 55%, #000000 100%);
+        }
+        .casados-page .navbar {
+            background: rgba(0, 0, 0, 0.72);
+        }
+        .casados-hero-stage {
+            position: relative;
+            min-height: 100svh;
+            margin-top: calc(-1 * (var(--navbar-height) + var(--safe-area-top)));
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            isolation: isolate;
+        }
+        .casados-hero-stage::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0;
+            height: 26vh;
+            background: linear-gradient(180deg, transparent, #000);
+            z-index: 2;
+        }
+        .casados-hero-media {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .casados-hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 52% 18%;
+            filter: saturate(0.78) contrast(1.08) brightness(0.72);
+        }
+        .casados-hero-shade {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background:
+                linear-gradient(90deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.58) 42%, rgba(0,0,0,0.18) 100%),
+                linear-gradient(180deg, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.08) 42%, rgba(0,0,0,0.88) 100%);
+        }
+        .casados-hero-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: calc(var(--navbar-height) + var(--space-4xl)) var(--space-xl) var(--space-4xl);
+            display: grid;
+            grid-template-columns: minmax(0, 720px) minmax(260px, 360px);
+            gap: var(--space-3xl);
+            align-items: end;
+        }
+        .casados-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: var(--space-lg);
+            color: var(--casados-champagne);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+        .casados-eyebrow::before {
+            content: "";
+            width: 44px;
+            height: 1px;
+            background: var(--casados-caramel);
+        }
+        .casados-hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(3.2rem, 8vw, 7.8rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: 0;
+            color: var(--casados-cream);
+            max-width: 820px;
+            margin-bottom: var(--space-xl);
+        }
+        .casados-hero-copy {
+            max-width: 650px;
+            color: rgba(245, 241, 234, 0.78);
+            font-size: clamp(1.02rem, 1.7vw, 1.2rem);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+        }
+        .casados-hero-signature {
+            display: grid;
+            gap: var(--space-md);
+            padding-left: var(--space-xl);
+            border-left: 1px solid rgba(216, 192, 160, 0.34);
+        }
+        .casados-hero-signature strong {
+            color: var(--casados-cream);
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            line-height: 1.2;
+        }
+        .casados-hero-signature span {
+            color: rgba(245, 241, 234, 0.58);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+        .casados-section {
+            position: relative;
+        }
+        .casados-editorial {
+            background: var(--casados-cream);
+            color: var(--casados-ink);
+            padding: clamp(64px, 8vw, 110px) 0;
+        }
+        .casados-editorial .section-tag {
+            color: #6E4B33;
+        }
+        .casados-editorial .section-title,
+        .casados-editorial h3,
+        .casados-editorial h4 {
+            color: var(--casados-ink);
+        }
+        .casados-editorial .section-description,
+        .casados-editorial p {
+            color: rgba(6, 5, 4, 0.68);
+        }
+        .casados-manifesto {
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            gap: clamp(32px, 6vw, 80px);
+            align-items: center;
+        }
+        .casados-manifesto-text h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5vw, 4.4rem);
+            line-height: 0.98;
+            letter-spacing: 0;
+            margin-bottom: var(--space-xl);
+        }
+        .casados-manifesto-text p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            max-width: 620px;
+        }
+        .casados-principles {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: var(--space-lg);
+        }
+        .casados-principle {
+            border-top: 1px solid rgba(74, 45, 30, 0.22);
+            padding-top: var(--space-lg);
+        }
+        .casados-principle i,
+        .casados-principle svg {
+            color: var(--casados-brown);
+            width: 24px;
+            height: 24px;
+            margin-bottom: var(--space-md);
+        }
+        .casados-principle h3 {
+            font-size: 1.05rem;
+            margin-bottom: var(--space-sm);
+        }
+        .casados-principle p {
+            font-size: 0.94rem;
+            line-height: 1.65;
+        }
+        .casados-dark-band {
+            padding: clamp(64px, 8vw, 110px) 0;
+            background:
+                linear-gradient(180deg, rgba(0,0,0,0.86), rgba(20,12,8,0.96)),
+                #000;
+        }
+        .casados-feature-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
+            gap: clamp(32px, 6vw, 72px);
+            align-items: center;
+        }
+        .casados-photo-stack {
+            position: relative;
+            min-height: 620px;
+        }
+        .casados-photo-main,
+        .casados-photo-accent {
+            position: absolute;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 28px 80px rgba(0,0,0,0.48);
+        }
+        .casados-photo-main {
+            inset: 0 12% 7% 0;
+            border-radius: 6px;
+        }
+        .casados-photo-accent {
+            right: 0;
+            bottom: 0;
+            width: 46%;
+            aspect-ratio: 3 / 4;
+            border-radius: 6px;
+        }
+        .casados-photo-main img,
+        .casados-photo-accent img,
+        .casados-gallery-item img,
+        .casados-president-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .casados-photo-main img {
+            object-position: center top;
+        }
+        .casados-feature-copy h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.1rem, 4.8vw, 4.2rem);
+            line-height: 1;
+            letter-spacing: 0;
+            margin-bottom: var(--space-xl);
+        }
+        .casados-feature-copy p {
+            color: rgba(255,255,255,0.68);
+            font-size: 1.04rem;
+            line-height: 1.85;
+            margin-bottom: var(--space-lg);
+        }
+        .casados-quote-line {
+            margin-top: var(--space-2xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid rgba(216,192,160,0.22);
+            color: var(--casados-champagne);
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+            line-height: 1.35;
+        }
+        .casados-journey {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1px;
+            margin-top: var(--space-3xl);
+            background: rgba(216,192,160,0.16);
+            border: 1px solid rgba(216,192,160,0.16);
+        }
+        .casados-journey-step {
+            min-height: 230px;
+            padding: var(--space-xl);
+            background: #090604;
+        }
+        .casados-journey-step span {
+            color: var(--casados-caramel);
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 0.14em;
+        }
+        .casados-journey-step h3 {
+            margin: var(--space-lg) 0 var(--space-sm);
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            line-height: 1.2;
+        }
+        .casados-journey-step p {
+            color: rgba(255,255,255,0.58);
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+        .casados-presidents {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: var(--space-xl);
+            margin-top: var(--space-3xl);
+        }
+        .casados-president {
+            display: grid;
+            grid-template-columns: 180px minmax(0, 1fr);
+            gap: var(--space-xl);
+            align-items: center;
+            border-top: 1px solid rgba(74, 45, 30, 0.2);
+            padding-top: var(--space-xl);
+        }
+        .casados-president-photo {
+            aspect-ratio: 4 / 5;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #120D0A;
+        }
+        .casados-president-placeholder {
+            height: 100%;
+            display: grid;
+            place-items: center;
+            background:
+                linear-gradient(145deg, rgba(74,45,30,0.96), rgba(6,5,4,0.92));
+            color: var(--casados-cream);
+            text-align: center;
+            padding: var(--space-lg);
+        }
+        .casados-president-placeholder strong {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            line-height: 1;
+            display: block;
+            margin-bottom: var(--space-sm);
+        }
+        .casados-president h3 {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            line-height: 1.15;
+            margin-bottom: var(--space-sm);
+        }
+        .casados-president small {
+            display: block;
+            color: #6E4B33;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-md);
+        }
+        .casados-gallery {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: var(--space-xl);
+        }
+        .casados-gallery-item {
+            position: relative;
+            min-height: 430px;
+            overflow: hidden;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+        .casados-gallery-item.is-small {
+            min-height: 210px;
+        }
+        .casados-gallery-side {
+            display: grid;
+            gap: var(--space-xl);
+        }
+        .casados-gallery-caption {
+            position: absolute;
+            inset: auto var(--space-lg) var(--space-lg);
+            color: white;
+            font-weight: 700;
+            text-shadow: 0 2px 18px rgba(0,0,0,0.8);
+        }
+        .casados-video-frame {
+            position: relative;
+            overflow: hidden;
+            border-radius: 6px;
+            border: 1px solid rgba(216,192,160,0.18);
+            background: #000;
+            aspect-ratio: 16 / 9;
+            margin-top: var(--space-3xl);
+        }
+        .casados-video-frame video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .casados-form-shell {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .casados-form-shell .section-header {
+            max-width: 650px;
+        }
+        .casados-contact-panel {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: var(--space-xl);
+            align-items: stretch;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+        .casados-contact-card {
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            padding: clamp(24px, 4vw, 44px);
+        }
+        .casados-contact-card h3 {
+            font-family: var(--font-display);
+            font-size: clamp(1.55rem, 3vw, 2.35rem);
+            line-height: 1.08;
+            margin-bottom: var(--space-lg);
+        }
+        .casados-contact-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-xl);
+        }
+        .casados-contact-list {
+            display: grid;
+            gap: var(--space-md);
+        }
+        .casados-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .casados-contact-item svg {
+            width: 20px;
+            height: 20px;
+            color: var(--casados-caramel);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .casados-contact-item strong {
+            display: block;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+        .casados-contact-item span {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 980px) {
+            .casados-hero-content,
+            .casados-manifesto,
+            .casados-feature-grid,
+            .casados-gallery,
+            .casados-presidents,
+            .casados-contact-panel {
+                grid-template-columns: 1fr;
+            }
+            .casados-hero-signature {
+                max-width: 520px;
+            }
+            .casados-photo-stack {
+                min-height: 520px;
+            }
+            .casados-journey {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .casados-hero-content {
+                padding-bottom: var(--space-3xl);
+                gap: var(--space-xl);
+            }
+            .casados-hero-shade {
+                background:
+                    linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.56) 38%, rgba(0,0,0,0.96) 100%);
+            }
+            .casados-hero-title {
+                font-size: clamp(3rem, 15vw, 4.5rem);
+            }
+            .casados-hero-copy {
+                font-size: 1rem;
+            }
+            .casados-principles,
+            .casados-journey,
+            .casados-presidents {
+                grid-template-columns: 1fr;
+            }
+            .casados-photo-stack {
+                min-height: 430px;
+            }
+            .casados-photo-main {
+                inset: 0 0 18% 0;
+            }
+            .casados-photo-accent {
+                width: 52%;
+            }
+            .casados-president {
+                grid-template-columns: 1fr;
+            }
+            .casados-president-photo {
+                max-width: 240px;
+            }
+            .casados-gallery-item,
+            .casados-gallery-item.is-small {
+                min-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body class="casados-page">
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon"><img src="media/logo-oficial-admav.jpeg" alt="Logo oficial ADMAV"></div>
+                <div class="logo-text"><span class="logo-name">ADMAV</span><span class="logo-sub">Casados</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="#jornada" class="nav-link">Programa</a></li>
+                <li><a href="#lideranca" class="nav-link">Liderança</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-toggle-app" id="navToggle" aria-label="Menu"><i data-lucide="menu"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="casados-hero-stage" id="hero">
+        <div class="casados-hero-media">
+            <img src="media/programa-casados/casados-poster.jpeg" alt="Família do Programa Casados Para Sempre">
+        </div>
+        <div class="casados-hero-shade"></div>
+        <div class="casados-hero-content">
+            <div>
+                <span class="casados-eyebrow">ADMAV Sede</span>
+                <h1 class="casados-hero-title">Casados Para Sempre</h1>
+                <p class="casados-hero-copy">
+                    Um ministério para casais que querem voltar ao centro da aliança: fé, presença, honra e reconstrução diária. Uma experiência pastoral com linguagem contemporânea, estética sofisticada e fundamentos bíblicos.
+                </p>
+                <div class="hero-actions" style="justify-content:flex-start;margin-bottom:0;">
+                    <a href="#contato" class="btn btn-primary"><i data-lucide="message-circle-heart"></i> Falar com a liderança</a>
+                    <a href="#jornada" class="btn btn-glass"><i data-lucide="arrow-down"></i> Conhecer a Jornada</a>
+                </div>
+            </div>
+            <div class="casados-hero-signature">
+                <strong>Fábio & Michelle</strong>
+                <span>Liderança direta do programa, sob a cobertura dos pastores presidentes Rogério Barros e Amanda Barros.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ JORNADA ═══ -->
+    <section class="casados-editorial casados-section" id="jornada">
+        <div class="container">
+            <div class="casados-manifesto">
+                <div class="casados-manifesto-text">
+                    <span class="section-tag">A proposta</span>
+                    <h2>Casamento não é evento. É formação.</h2>
+                    <p>
+                        O Casados Para Sempre foi desenhado com uma leitura pastoral prática, inspirada por modelos americanos de marriage ministry: encontros objetivos, conversas guiadas, mentoria de casais, pequenos grupos e momentos intencionais para reacender o vínculo.
+                    </p>
+                    <p>
+                        Aqui, romantismo não substitui maturidade. A aliança é tratada com beleza, verdade e responsabilidade espiritual.
+                    </p>
+                </div>
+                <div class="casados-principles">
+                    <div class="casados-principle">
+                        <i data-lucide="book-open"></i>
+                        <h3>Fundamento bíblico</h3>
+                        <p>A Palavra direciona decisões, cura feridas e devolve o casamento ao desenho de Deus.</p>
+                    </div>
+                    <div class="casados-principle">
+                        <i data-lucide="heart-handshake"></i>
+                        <h3>Mentoria pastoral</h3>
+                        <p>Casais são conduzidos com escuta, oração, sigilo e acompanhamento responsável.</p>
+                    </div>
+                    <div class="casados-principle">
+                        <i data-lucide="message-circle-heart"></i>
+                        <h3>Comunicação real</h3>
+                        <p>Conversas difíceis ganham método, graça e um ambiente seguro para recomeçar.</p>
+                    </div>
+                    <div class="casados-principle">
+                        <i data-lucide="home"></i>
+                        <h3>Legado familiar</h3>
+                        <p>Quando pai e mãe se reposicionam, a casa inteira sente o reflexo da cura.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="casados-journey">
+                <div class="casados-journey-step">
+                    <span>01</span>
+                    <h3>Encontros intencionais</h3>
+                    <p>Temas diretos sobre aliança, perdão, intimidade, finanças, rotina e propósito.</p>
+                </div>
+                <div class="casados-journey-step">
+                    <span>02</span>
+                    <h3>Small groups</h3>
+                    <p>Comunidade de casais com conversa honesta, prestação de contas e amizade madura.</p>
+                </div>
+                <div class="casados-journey-step">
+                    <span>03</span>
+                    <h3>Date nights</h3>
+                    <p>Momentos pensados para o casal voltar a se olhar, celebrar e construir memória.</p>
+                </div>
+                <div class="casados-journey-step">
+                    <span>04</span>
+                    <h3>Acompanhamento</h3>
+                    <p>Direção pastoral para que a transformação não termine no encontro, mas chegue em casa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ LIDERANÇA ═══ -->
+    <section class="casados-dark-band casados-section" id="lideranca">
+        <div class="container">
+            <div class="casados-feature-grid">
+                <div class="casados-photo-stack">
+                    <div class="casados-photo-main">
+                        <img src="media/programa-casados/familia-casados.jpeg" alt="Fábio e Michelle, líderes do Casados Para Sempre">
+                    </div>
+                    <div class="casados-photo-accent">
+                        <img src="media/programa-casados/lideres-casados.jpeg" alt="Arte do Programa Casados Para Sempre">
+                    </div>
+                </div>
+                <div class="casados-feature-copy">
+                    <span class="casados-eyebrow">Liderança do programa</span>
+                    <h2>Fábio e Michelle conduzem a jornada.</h2>
+                    <p>
+                        A liderança do Casados Para Sempre está nas mãos de Fábio e Michelle, com uma condução próxima, pastoral e sensível à realidade de cada casa. Eles assumem o programa como um chamado para fortalecer alianças e reposicionar famílias.
+                    </p>
+                    <p>
+                        A proposta é direta: menos aparência, mais verdade; menos distância, mais presença; menos improviso, mais intencionalidade no amor.
+                    </p>
+                    <div class="casados-quote-line">
+                        "Sobre tudo o que se deve guardar, guarda o teu coração, porque dele procedem as saídas da vida."
+                        <br><span style="font-size:0.82rem;color:rgba(255,255,255,0.48);font-family:var(--font-body);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">Provérbios 4:23</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ COBERTURA PASTORAL ═══ -->
+    <section class="casados-editorial casados-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Cobertura pastoral</span>
+                <h2 class="section-title">Pastores presidentes</h2>
+                <p class="section-description">
+                    O programa caminha debaixo da visão e cobertura dos pastores presidentes da ADMAV, Pr. Rogério Barros e Pra. Amanda Barros.
+                </p>
+            </div>
+            <div class="casados-presidents">
+                <article class="casados-president">
+                    <div class="casados-president-photo">
+                        <img src="media/pastores presidentes/WhatsApp Image 2026-04-28 at 16.59.54.jpeg" alt="Pastor Rogério Barros">
+                    </div>
+                    <div>
+                        <small>Pastor presidente</small>
+                        <h3>Pr. Rogério Barros</h3>
+                        <p>Liderança sênior e cobertura espiritual do Programa Casados Para Sempre na ADMAV.</p>
+                    </div>
+                </article>
+                <article class="casados-president">
+                    <div class="casados-president-photo">
+                        <div class="casados-president-placeholder" aria-label="Foto da Pra. Amanda Barros será adicionada em breve">
+                            <div>
+                                <strong>AB</strong>
+                                <span>Foto em breve</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <small>Pastora presidente</small>
+                        <h3>Pra. Amanda Barros</h3>
+                        <p>Presença pastoral na visão da igreja e na edificação das famílias da ADMAV.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ GALERIA ═══ -->
+    <section class="casados-dark-band casados-section" id="galeria">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Memória visual</span>
+                <h2 class="section-title">Beleza que aponta para aliança</h2>
+                <p class="section-description">
+                    As imagens do programa foram usadas como linguagem principal da página: família, celebração e proximidade.
+                </p>
+            </div>
+            <div class="casados-gallery">
+                <div class="casados-gallery-item">
+                    <img src="media/programa-casados/momento-casal.jpeg" alt="Mensagem do Casados Para Sempre sobre carinho no casamento">
+                    <div class="casados-gallery-caption">Não deixe para amanhã os beijos que você pode dar hoje.</div>
+                </div>
+                <div class="casados-gallery-side">
+                    <div class="casados-gallery-item is-small">
+                        <img src="media/programa-casados/casados-poster.jpeg" alt="Família do Programa Casados Para Sempre">
+                        <div class="casados-gallery-caption">Família em primeiro lugar.</div>
+                    </div>
+                    <div class="casados-gallery-item is-small">
+                        <img src="media/programa-casados/lideres-casados.jpeg" alt="Identidade visual do Casados Para Sempre">
+                        <div class="casados-gallery-caption">Uma jornada para construir legado.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ VIDEO ═══ -->
+    <section class="casados-editorial casados-section" id="video">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Atmosfera</span>
+                <h2 class="section-title">Um convite para recomeçar</h2>
+                <p class="section-description">
+                    O vídeo do programa entra como peça central de apresentação, reforçando a identidade visual do Casados Para Sempre.
+                </p>
+            </div>
+            <div class="casados-video-frame">
+                <video controls preload="metadata" poster="media/programa-casados/casados-poster.jpeg">
+                    <source src="media/programa-casados/casados-hero-video.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CONTATO ═══ -->
+    <section class="casados-dark-band casados-section" id="contato">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Próximo passo</span>
+                <h2 class="section-title">Converse com a liderança</h2>
+                <p class="section-description">O cadastro foi removido. A participação no programa agora é direcionada pessoalmente com a liderança da ADMAV Sede.</p>
+            </div>
+            <div class="casados-contact-panel">
+                <div class="casados-contact-card">
+                    <h3>Fábio e Michelle recebem os casais de perto.</h3>
+                    <p>
+                        Procure a liderança na ADMAV Sede para saber sobre os próximos encontros, orientações pastorais e datas do Casados Para Sempre.
+                    </p>
+                    <a href="#faq" class="btn btn-primary"><i data-lucide="messages-square"></i> Ver perguntas frequentes</a>
+                </div>
+                <div class="casados-contact-card">
+                    <div class="casados-contact-list">
+                        <div class="casados-contact-item">
+                            <i data-lucide="church"></i>
+                            <div><strong>Na ADMAV Sede</strong><span>Fale com Fábio e Michelle após os cultos ou encontros da igreja.</span></div>
+                        </div>
+                        <div class="casados-contact-item">
+                            <i data-lucide="shield-check"></i>
+                            <div><strong>Cobertura pastoral</strong><span>Pr. Rogério Barros e Pra. Amanda Barros acompanham a visão pastoral do programa.</span></div>
+                        </div>
+                        <div class="casados-contact-item">
+                            <i data-lucide="heart-handshake"></i>
+                            <div><strong>Cuidado pessoal</strong><span>Casais em crise recebem orientação direta e discreta pela liderança.</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="section" id="faq">
+        <div class="container" style="max-width:700px;">
+            <div class="section-header">
+                <span class="section-tag">Dúvidas</span>
+                <h2 class="section-title">Perguntas <span class="text-gradient">Frequentes</span></h2>
+            </div>
+            <div class="casados-faq" style="display:grid;gap:12px;">
+                <details>
+                    <summary>Preciso ser casado no papel?</summary>
+                    <p>Sim! A proposta é focada em casamentos legalmente constituídos. Se seu status é diferente, converse conosco para um direcionamento individual e carinhoso.</p>
+                </details>
+                <details>
+                    <summary>Meu cônjuge precisa participar também?</summary>
+                    <p>Idealmente, sim. Trabalhamos a unidade do casal, mas sua presença individual também edifica. Ore para que seu cônjuge seja sensibilizado pelo Espírito Santo a participar.</p>
+                </details>
+                <details>
+                    <summary>Tem algum custo?</summary>
+                    <p>O programa é <strong>totalmente gratuito</strong>. É um investimento pastoral da visão dos pastores presidentes Pr. Rogério Barros e Pra. Amanda Barros, executado por Fábio e Michelle.</p>
+                </details>
+                <details>
+                    <summary>Como faço para participar?</summary>
+                    <p>Procure Fábio e Michelle na ADMAV Sede para receber orientação sobre datas, encontros e próximos passos do programa.</p>
+                </details>
+                <details>
+                    <summary>A quem posso recorrer se estiver em crise urgente?</summary>
+                    <p>Se o seu casamento está em crise severa, entre em contato direto com a liderança pelo Instagram da ADMAV Sede ou procure o Pr. Fábio diretamente na igreja. Você não está sozinho(a).</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-gradient"></div>
+        <div class="container"><div class="footer-bottom"><p>&copy; 2026 Casados Para Sempre — ADMAV Sede. Liderança de Fábio e Michelle, sob a cobertura pastoral do Pr. Rogério Barros e Pra. Amanda Barros.</p></div></div>
+    </footer>
+
+    <!-- PWA Shell -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="side-drawer" id="sideDrawer">
+        <div class="drawer-header"><span class="logo-name">ADMAV</span><button class="drawer-close" id="closeDrawer">&times;</button></div>
+        <nav class="drawer-nav">
+            <a href="index.html" class="nav-link">Início</a>
+            <a href="sede.html" class="nav-link">ADMAV Sede</a>
+            <a href="nossas-igrejas.html" class="nav-link">Nossas Igrejas</a>
+            <a href="programa-casados.html" class="nav-link active">Programa Casados</a>
+            <hr class="drawer-divider">
+            <a href="#jornada" class="nav-link">Sobre o Programa</a>
+            <a href="#lideranca" class="nav-link">Nossos Líderes</a>
+            <a href="#contato" class="nav-link">Contato</a>
+        </nav>
+    </div>
+    <nav class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item"><i data-lucide="home"></i><span>Início</span></a>
+        <a href="sede.html" class="bottom-nav-item"><i data-lucide="church"></i><span>Sede</span></a>
+        <a href="nossas-igrejas.html" class="bottom-nav-item"><i data-lucide="map-pin"></i><span>Igrejas</span></a>
+        <a href="programa-casados.html" class="bottom-nav-item active"><i data-lucide="heart"></i><span>Casados</span></a>
+    </nav>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

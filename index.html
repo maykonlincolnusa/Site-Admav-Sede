@@ -1,0 +1,548 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ADMAV Sede - Ministério Mananciais de Vida. Conheça nossas filiais: Freguesia, Colônia, Campo Grande, Praça Seca e MAV Recreio.">
+    <meta name="keywords" content="ADMAV, igreja, mananciais de vida, culto, Rio de Janeiro">
+    <meta name="author" content="ADMAV Sede">
+    <title>ADMAV Sede — Ministério Mananciais de Vida</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ADMAV">
+    <link rel="apple-touch-icon" href="media/icon-192.png">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="home-page">
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon"><img src="media/logo-oficial-admav.jpeg" alt="Logo oficial ADMAV"></div>
+                <div class="logo-text">
+                    <span class="logo-name">ADMAV</span>
+                    <span class="logo-sub">Site Oficial</span>
+                </div>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="sede.html" class="nav-link">Sede</a></li>
+                <li><a href="nossas-igrejas.html" class="nav-link">Igrejas</a></li>
+                <li><a href="programa-casados.html" class="nav-link">Casados</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="nav-toggle-app" id="navToggle" aria-label="Menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero home-hero" id="home">
+        <div class="hero-bg">
+            <img src="media/admav sede/SaveClip.App_672424327_18356585497232965_710910378571419379_n.jpg" alt="Culto na ADMAV Sede">
+            <div class="hero-gradient"></div>
+            <div class="hero-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+            </div>
+        </div>
+        <div class="hero-content home-hero-content">
+            <div class="home-hero-copy">
+                <div class="hero-badge">
+                    <i data-lucide="sparkles"></i>
+                    <span>Boas-vindas à nossa casa</span>
+                </div>
+                <h1 class="hero-title">
+                    ADMAV Sede
+                    <span class="hero-title-accent">2026 — Ano da Colheita</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Sob a presidência do <strong>Pr. Rogério Barros</strong> e <strong>Pra. Amanda Barros</strong>, a ADMAV é uma família que vive o mover de Deus.<br>
+                    Venha fazer parte do nosso <strong>Ano da Colheita</strong>.
+                </p>
+                <div class="hero-actions">
+                    <a href="sede.html" class="btn btn-primary">
+                        <i data-lucide="calendar"></i>
+                        Conheça a Sede
+                    </a>
+                    <a href="nossas-igrejas.html" class="btn btn-glass">
+                        <i data-lucide="map-pin"></i>
+                        Nossas Filiais
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-number" data-count="6">0</span>
+                        <span class="stat-label">Unidades</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="stat-number" data-count="18">0</span>
+                        <span class="stat-label">Mil seguidores</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="stat-number" data-count="2026">0</span>
+                        <span class="stat-label">Ano da Colheita</span>
+                    </div>
+                </div>
+            </div>
+            <div class="pastors-hero-group" aria-label="Pastores presidentes da ADMAV">
+                <figure class="pastor-hero-card pastor-hero-card--rogerio">
+                    <img src="media/pastores presidentes/WhatsApp Image 2026-04-28 at 16.59.54.jpeg" alt="Pr. Rogério Barros, pastor presidente da ADMAV" width="1280" height="852" decoding="async" fetchpriority="high">
+                    <figcaption class="pastor-hero-label">
+                        <span>Pastor presidente</span>
+                        <strong>Pr. Rogério Barros</strong>
+                    </figcaption>
+                </figure>
+                <figure class="pastor-hero-card pastor-hero-card--amanda">
+                    <img src="media/pastores presidentes/pra-amanda-barros.jpg" alt="Pra. Amanda Barros, pastora presidente da ADMAV" width="1200" height="1800" decoding="async" fetchpriority="high">
+                    <figcaption class="pastor-hero-label">
+                        <span>Pastora presidente</span>
+                        <strong>Pra. Amanda Barros</strong>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <a href="#sobre" class="scroll-indicator">
+                <i data-lucide="chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ═══ COBERTURA PASTORAL ═══ -->
+    <section class="section home-cream-section" id="lideranca">
+        <div class="container">
+            <div class="home-leadership-layout">
+                <div class="home-leadership-photos" aria-label="Pr. Rogério Barros e Pra. Amanda Barros">
+                    <figure class="home-leadership-photo home-leadership-photo--rogerio">
+                        <img src="media/pastores presidentes/WhatsApp Image 2026-04-28 at 16.59.54.jpeg" alt="Pr. Rogério Barros" width="1280" height="852" loading="lazy" decoding="async">
+                        <figcaption class="home-leadership-seal">
+                            <span>Cobertura pastoral</span>
+                            <strong>Pr. Rogério Barros</strong>
+                        </figcaption>
+                    </figure>
+                    <figure class="home-leadership-photo home-leadership-photo--amanda">
+                        <img src="media/pastores presidentes/pra-amanda-barros.jpg" alt="Pra. Amanda Barros" width="1200" height="1800" loading="lazy" decoding="async">
+                        <figcaption class="home-leadership-seal">
+                            <span>Cobertura pastoral</span>
+                            <strong>Pra. Amanda Barros</strong>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="home-leadership-copy">
+                    <span class="section-tag">Pastores presidentes</span>
+                    <h2>Uma casa conduzida por visão, família e presença.</h2>
+                    <p>
+                        A ADMAV caminha sob a presidência do <strong>Pr. Rogério Barros</strong> e da <strong>Pra. Amanda Barros</strong>, com uma cultura de fé, acolhimento, intercessão e compromisso com a Palavra.
+                    </p>
+                    <p>
+                        O Ano da Colheita não é apenas um tema visual. É uma declaração sobre maturidade, serviço, expansão e famílias reposicionadas para viver o propósito de Deus.
+                    </p>
+                    <div class="home-president-grid">
+                        <article class="home-president-card">
+                            <span>Pastor presidente</span>
+                            <h3>Pr. Rogério Barros</h3>
+                            <p>Liderança sênior da ADMAV, conduzindo a igreja em unidade, avivamento e direção espiritual.</p>
+                        </article>
+                        <article class="home-president-card">
+                            <span>Pastora presidente</span>
+                            <h3>Pra. Amanda Barros</h3>
+                            <p>Presença pastoral na edificação da igreja, no cuidado com famílias e no fortalecimento da visão da casa.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ QUEM SOMOS ═══ -->
+    <section class="section section-about" id="sobre">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Quem Somos</span>
+                <h2 class="section-title">Nossa <span class="text-gradient">História</span></h2>
+                <p class="section-description">
+                    A ADMAV — Ministério Mananciais de Vida — nasceu com o propósito de levar a Palavra de Deus a todas as nações.
+                    Presidida pelo <strong>Pr. Rogério Barros</strong> e pela <strong>Pra. Amanda Barros</strong>, nossa comunidade cresce em fé, unidade e amor, alcançando vidas e transformando famílias inteiras.
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card neu-card">
+                    <div class="about-card-icon"><i data-lucide="heart"></i></div>
+                    <h3>Missão</h3>
+                    <p>Levar o Evangelho de Jesus Cristo, fazendo discípulos em todas as nações e promovendo o avivamento espiritual em cada coração.</p>
+                </div>
+                <div class="about-card neu-card">
+                    <div class="about-card-icon"><i data-lucide="eye"></i></div>
+                    <h3>Visão</h3>
+                    <p>Ser uma igreja referência em amor, acolhimento e transformação social, expandindo o Reino de Deus através de cada filial e ministério.</p>
+                </div>
+                <div class="about-card neu-card">
+                    <div class="about-card-icon"><i data-lucide="gem"></i></div>
+                    <h3>Valores</h3>
+                    <p>Fé, integridade, amor ao próximo, excelência no servir, unidade entre os irmãos e compromisso inabalável com a Palavra de Deus.</p>
+                </div>
+            </div>
+
+            <div class="about-verse glass-panel">
+                <i data-lucide="book-open" class="verse-icon"></i>
+                <blockquote>
+                    "Porque onde estiverem dois ou três reunidos em meu nome, aí estou eu no meio deles."
+                </blockquote>
+                <cite>— Mateus 18:20</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CULTURA DA CASA ═══ -->
+    <section class="section home-brown-section" id="cultura">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Cultura ADMAV</span>
+                <h2 class="section-title">O que você encontra <span class="text-gradient-light">na casa</span></h2>
+                <p class="section-description">
+                    A ADMAV é uma igreja de presença, formação e cuidado. A vida da casa se organiza em culto, intercessão, ensino, família e expansão pelas filiais.
+                </p>
+            </div>
+            <div class="home-culture-grid">
+                <article class="home-culture-card">
+                    <i data-lucide="flame"></i>
+                    <h3>Louvor e avivamento</h3>
+                    <p>Cultos com ambiente pentecostal, adoração intensa e busca pelo mover do Espírito Santo.</p>
+                </article>
+                <article class="home-culture-card">
+                    <i data-lucide="shield"></i>
+                    <h3>Terça de Intercessão</h3>
+                    <p>Noite de clamor, cobertura espiritual, oração pelas famílias e alinhamento da igreja.</p>
+                </article>
+                <article class="home-culture-card">
+                    <i data-lucide="book-open"></i>
+                    <h3>IBMAV</h3>
+                    <p>Formação bíblica e preparo ministerial para quem deseja crescer em fundamento e serviço.</p>
+                </article>
+                <article class="home-culture-card">
+                    <i data-lucide="heart-handshake"></i>
+                    <h3>Casados Para Sempre</h3>
+                    <p>Uma frente pastoral para fortalecer alianças, restaurar lares e cuidar de casais.</p>
+                </article>
+                <article class="home-culture-card">
+                    <i data-lucide="baby"></i>
+                    <h3>Família no altar</h3>
+                    <p>Crianças, casais, mulheres, jovens e lares tratados como prioridade espiritual.</p>
+                </article>
+                <article class="home-culture-card">
+                    <i data-lucide="map-pin"></i>
+                    <h3>Uma igreja, muitos lugares</h3>
+                    <p>Sede, Freguesia, Colônia, Campo Grande, Praça Seca e MAV Church Recreio.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ VIDA DA CASA ═══ -->
+    <section class="section section-schedule" id="programacao">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Vida da Casa</span>
+                <h2 class="section-title">Família, intercessão e <span class="text-gradient-light">formação bíblica</span></h2>
+                <p class="section-description">
+                    Na ADMAV Sede, cuidamos dos lares, buscamos a Deus em oração e investimos em crescimento espiritual.
+                </p>
+            </div>
+
+            <div class="home-service-times" aria-label="Horários dos cultos da ADMAV Sede">
+                <div class="home-service-time"><i data-lucide="sun"></i><span>Domingo às 10h</span></div>
+                <div class="home-service-time"><i data-lucide="moon"></i><span>Domingo às 18h30</span></div>
+                <div class="home-service-time"><i data-lucide="shield"></i><span>Terça às 19h</span></div>
+            </div>
+
+            <div class="schedule-grid">
+                <div class="schedule-card glass-card">
+                    <div class="schedule-day">Programa de Casados</div>
+                    <div class="schedule-items">
+                        <div class="schedule-item">
+                            <span class="schedule-time">Lares</span>
+                            <div class="schedule-detail">
+                                <h4>Casados para Sempre</h4>
+                                <p>Uma frente dedicada ao fortalecimento do casamento, com direção bíblica, escuta e cuidado intencional.</p>
+                            </div>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-time">Contato</span>
+                            <div class="schedule-detail">
+                                <h4>Página do programa</h4>
+                                <p>Conheça a proposta completa e veja como falar diretamente com a liderança do Casados Para Sempre.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="schedule-card-action">
+                        <a href="programa-casados.html" class="btn btn-primary btn-full">Conhecer Programa</a>
+                    </div>
+                </div>
+
+                <div class="schedule-card glass-card" data-test-label="Terca de Intercessao">
+                    <div class="schedule-day">Terça de Intercessão</div>
+                    <div class="schedule-items">
+                        <div class="schedule-item">
+                            <span class="schedule-time">Terça</span>
+                            <div class="schedule-detail">
+                                <h4>Culto de clamor às 19h</h4>
+                                <p>Uma noite separada para guerra espiritual, cobertura das famílias, oração e alinhamento da casa.</p>
+                            </div>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-time">Fé</span>
+                            <div class="schedule-detail">
+                                <h4>Busca profunda</h4>
+                                <p>Um ambiente de intercessão para quem deseja permanecer sensível ao mover de Deus e servir em oração.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="schedule-card-action">
+                        <a href="sede.html" class="btn btn-glass btn-full">Ver Agenda da Sede</a>
+                    </div>
+                </div>
+
+                <div class="schedule-card glass-card">
+                    <div class="schedule-day">Curso de Teologia IBMAV</div>
+                    <div class="schedule-items">
+                        <div class="schedule-item">
+                            <span class="schedule-time">IBMAV</span>
+                            <div class="schedule-detail">
+                                <h4>Formação bíblica</h4>
+                                <p>Um curso pensado para quem deseja crescer no conhecimento da Palavra, da doutrina e do serviço cristão.</p>
+                            </div>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-time">Ensino</span>
+                            <div class="schedule-detail">
+                                <h4>Preparo ministerial</h4>
+                                <p>Uma jornada de fundamento, maturidade e capacitação para alunos e líderes comprometidos com o Reino.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="schedule-card-action">
+                        <a href="sede.html" class="btn btn-glass btn-full">Conhecer a Sede</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ JORNADA DE VISITA ═══ -->
+    <section class="section home-cream-section" id="visita">
+        <div class="container">
+            <div class="home-visit-layout">
+                <aside class="home-visit-panel">
+                    <span class="section-tag">Primeira visita</span>
+                    <h2>Chegue como visitante. Saia como família.</h2>
+                    <p>A Sede fica na <strong>Rua Calmon, 28 — Curicica/RJ</strong>. Aos domingos, a casa se reúne às <strong>10h</strong> e às <strong>18h30</strong>. Às terças, a intercessão acontece às <strong>19h</strong>.</p>
+                    <a href="sede.html#localizacao" class="btn btn-primary"><i data-lucide="map"></i> Ver localização</a>
+                </aside>
+                <div class="home-visit-steps">
+                    <article class="home-visit-step">
+                        <strong>01</strong>
+                        <div>
+                            <h3>Escolha uma reunião</h3>
+                            <p>Domingo é o melhor dia para conhecer a Sede com calma. Terça é uma noite de clamor e intercessão.</p>
+                        </div>
+                    </article>
+                    <article class="home-visit-step">
+                        <strong>02</strong>
+                        <div>
+                            <h3>Venha com sua família</h3>
+                            <p>A ADMAV tem uma cultura voltada para lares, crianças, casais e pessoas que querem recomeçar.</p>
+                        </div>
+                    </article>
+                    <article class="home-visit-step">
+                        <strong>03</strong>
+                        <div>
+                            <h3>Conheça as frentes da casa</h3>
+                            <p>Casados Para Sempre, IBMAV, intercessão, cultos e filiais formam uma jornada contínua de crescimento.</p>
+                        </div>
+                    </article>
+                    <article class="home-visit-step">
+                        <strong>04</strong>
+                        <div>
+                            <h3>Encontre sua filial</h3>
+                            <p>Se a Sede não for a mais próxima, encontre uma ADMAV ou MAV Church perto da sua rotina.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FILIAIS ═══ -->
+    <section class="section section-branches" id="filiais">
+        <div class="branches-bg"><div class="branches-gradient"></div></div>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Nossas Filiais</span>
+                <h2 class="section-title">Presentes em <span class="text-gradient-light">toda a cidade</span></h2>
+                <p class="section-description">Cada filial carrega a mesma visão com uma expressão local: culto, comunhão, restauração familiar e serviço à comunidade.</p>
+            </div>
+
+            <div class="home-branch-showcase">
+                <article class="home-branch-feature">
+                    <img src="media/admav sede/SaveClip.App_671936032_18356306497232965_236609382575418521_n.jpg" alt="ADMAV Sede">
+                    <div class="home-branch-caption">
+                        <span>Sede</span>
+                        <h3>O coração ministerial da ADMAV em Curicica.</h3>
+                    </div>
+                </article>
+                <div class="home-branch-stack">
+                    <article class="home-branch-mini">
+                        <img src="media/admav colonia/SaveClip.App_681540989_18196761892360741_5118835382419899940_n.jpg" alt="ADMAV Colônia">
+                        <div class="home-branch-caption">
+                            <span>Colônia</span>
+                            <h3>Famílias, crianças e restauração.</h3>
+                        </div>
+                    </article>
+                    <article class="home-branch-mini">
+                        <img src="media/Mav Recreio/SaveClip.App_671781140_18084230936527171_8575441723802691773_n.jpg" alt="MAV Church Recreio">
+                        <div class="home-branch-caption">
+                            <span>Recreio</span>
+                            <h3>Linguagem jovem e contemporânea.</h3>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="branches-grid">
+                <div class="branch-card branch-card-main glass-card">
+                    <div class="branch-badge">Sede</div>
+                    <div class="branch-icon-wrap"><i data-lucide="building-2"></i></div>
+                    <h3 class="branch-name">ADMAV Sede</h3>
+                    <p class="branch-desc">Nossa sede principal, o coração do ministério. Cultos vibrantes sob pastoreio do Pr. Rogério Barros.</p>
+                    <a href="sede.html" class="btn btn-primary btn-full">Conhecer Filial</a>
+                </div>
+
+                <div class="branch-card glass-card">
+                    <div class="branch-icon-wrap"><i data-lucide="map-pin"></i></div>
+                    <h3 class="branch-name">ADMAV Freguesia</h3>
+                    <p class="branch-desc">13 anos de história servindo a comunidade de Jacarepaguá com amor.</p>
+                    <a href="freguesia.html" class="btn btn-glass btn-full">Ver Mais</a>
+                </div>
+
+                <div class="branch-card glass-card">
+                    <div class="branch-icon-wrap"><i data-lucide="map-pin"></i></div>
+                    <h3 class="branch-name">ADMAV Colônia</h3>
+                    <p class="branch-desc">Restauração familiar e foco especial no ministério MAV KIDS.</p>
+                    <a href="colonia.html" class="btn btn-glass btn-full">Ver Mais</a>
+                </div>
+
+                <div class="branch-card glass-card">
+                    <div class="branch-icon-wrap"><i data-lucide="map-pin"></i></div>
+                    <h3 class="branch-name">ADMAV Campo Grande</h3>
+                    <p class="branch-desc">Vibração e adoração na Zona Oeste com o Pr. Eduardo Portugal.</p>
+                    <a href="campo-grande.html" class="btn btn-glass btn-full">Ver Mais</a>
+                </div>
+
+                <div class="branch-card glass-card">
+                    <div class="branch-icon-wrap"><i data-lucide="map-pin"></i></div>
+                    <h3 class="branch-name">ADMAV Praça Seca</h3>
+                    <p class="branch-desc">Vigílias e batismos sob a direção do Pr. Edson Mello.</p>
+                    <a href="praca-seca.html" class="btn btn-glass btn-full">Ver Mais</a>
+                </div>
+
+                <div class="branch-card glass-card">
+                    <div class="branch-icon-wrap"><i data-lucide="map-pin"></i></div>
+                    <h3 class="branch-name">MAV Church Recreio</h3>
+                    <p class="branch-desc">Avivamento e modernidade na orla do Recreio.</p>
+                    <a href="recreio.html" class="btn btn-glass btn-full">Ver Mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer" id="contato">
+        <div class="footer-gradient"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <div class="logo-icon"><img src="media/logo-oficial-admav.jpeg" alt="Logo oficial ADMAV"></div>
+                        <div class="logo-text"><span class="logo-name">ADMAV</span><span class="logo-sub">Sede</span></div>
+                    </div>
+                    <p class="footer-desc">Ministério Mananciais de Vida. Levando a Palavra a todas as nações.</p>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Filiais</h4>
+                    <ul>
+                        <li><a href="sede.html">ADMAV Sede</a></li>
+                        <li><a href="freguesia.html">ADMAV Freguesia</a></li>
+                        <li><a href="colonia.html">ADMAV Colônia</a></li>
+                        <li><a href="campo-grande.html">ADMAV Campo Grande</a></li>
+                        <li><a href="praca-seca.html">ADMAV Praça Seca</a></li>
+                        <li><a href="recreio.html">MAV Recreio</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ADMAV Sede — Ministério Mananciais de Vida. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══ PWA DRAWER ═══ -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="side-drawer" id="sideDrawer">
+        <div class="drawer-header">
+            <span class="logo-name">ADMAV</span>
+            <button class="drawer-close" id="closeDrawer">&times;</button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="index.html" class="nav-link active">Início</a>
+            <a href="sede.html" class="nav-link">ADMAV Sede</a>
+            <a href="nossas-igrejas.html" class="nav-link">Nossas Igrejas</a>
+            <a href="programa-casados.html" class="nav-link">Programa Casados</a>
+            <hr class="drawer-divider">
+            <a href="#contato" class="nav-link">Contato</a>
+        </nav>
+    </div>
+
+    <!-- ═══ PWA BOTTOM NAV ═══ -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item active">
+            <i data-lucide="home"></i>
+            <span>Início</span>
+        </a>
+        <a href="sede.html" class="bottom-nav-item">
+            <i data-lucide="church"></i>
+            <span>Sede</span>
+        </a>
+        <a href="nossas-igrejas.html" class="bottom-nav-item">
+            <i data-lucide="map-pin"></i>
+            <span>Igrejas</span>
+        </a>
+        <a href="programa-casados.html" class="bottom-nav-item">
+            <i data-lucide="heart"></i>
+            <span>Casados</span>
+        </a>
+    </nav>
+
+    <!-- ═══ SCRIPTS ═══ -->
+    <script src="script.js"></script>
+
+</body>
+</html>
