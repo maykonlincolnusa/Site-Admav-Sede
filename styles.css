@@ -1636,6 +1636,18 @@ input, textarea, select {
     color: var(--text-primary);
 }
 
+.home-page .home-cream-section .section-tag,
+.home-page .section-about .section-tag,
+.home-page .section-schedule .section-tag,
+.home-page .home-brown-section .section-tag,
+.home-social-section .section-tag,
+.redes-section .section-tag {
+    background: #FFF8F0;
+    border: 1px solid rgba(90,50,31,0.22);
+    color: #5A321F;
+    box-shadow: 0 10px 28px rgba(42,22,13,0.08);
+}
+
 .section-title {
     font-family: var(--font-display);
     font-size: clamp(1.8rem, 4vw, 2.8rem);
@@ -2013,10 +2025,15 @@ input, textarea, select {
     .home-social-layout {
         grid-template-columns: 1fr;
     }
+
+    .redes-hero .hero-bg img {
+        object-position: center top;
+    }
 }
 
 .redes-hero .hero-bg img {
-    object-position: center 35%;
+    object-position: center center;
+    transform: scale(1.02);
 }
 
 .redes-section {
@@ -2163,6 +2180,210 @@ input, textarea, select {
 @media (min-width: 761px) and (max-width: 980px) {
     .redes-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.biblia-hero .hero-bg img {
+    object-position: center 38%;
+}
+
+.biblia-reader-section,
+.biblia-shortcuts-section {
+    background: #F8F1E8;
+    color: #170D08;
+}
+
+.biblia-reader-layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.42fr) minmax(0, 0.58fr);
+    gap: var(--space-xl);
+    align-items: start;
+}
+
+.biblia-control-panel,
+.biblia-reading-card {
+    border-radius: 8px;
+    background: #FFFFFF;
+    border: 1px solid rgba(90,50,31,0.14);
+    box-shadow: 0 18px 48px rgba(42,22,13,0.08);
+}
+
+.biblia-control-panel {
+    position: sticky;
+    top: calc(var(--navbar-height) + var(--space-xl));
+    padding: var(--space-2xl);
+}
+
+.biblia-control-panel h2,
+.biblia-reading-header h2,
+.biblia-shortcuts-section .section-title {
+    color: #170D08;
+}
+
+.biblia-control-panel p,
+.biblia-shortcuts-section .section-description {
+    color: rgba(23,13,8,0.68);
+}
+
+.biblia-form,
+.biblia-reference-form {
+    display: grid;
+    gap: 10px;
+    margin-top: var(--space-xl);
+}
+
+.biblia-form label,
+.biblia-reference-form label {
+    color: #5A321F;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.biblia-form select,
+.biblia-reference-row input {
+    width: 100%;
+    min-height: 48px;
+    border-radius: 8px;
+    border: 1px solid rgba(90,50,31,0.18);
+    background: #FFF8F0;
+    color: #170D08;
+    padding: 0 14px;
+    font: inherit;
+}
+
+.biblia-reference-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+}
+
+.biblia-reading-card {
+    padding: var(--space-2xl);
+    min-height: 560px;
+}
+
+.biblia-reading-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid rgba(90,50,31,0.12);
+}
+
+.biblia-reading-header span {
+    display: block;
+    color: #8A5A36;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.biblia-icon-button {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: #F3E6D7;
+    color: #5A321F;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+}
+
+.biblia-status {
+    min-height: 28px;
+    margin: var(--space-lg) 0;
+    color: rgba(23,13,8,0.64);
+    font-weight: 700;
+}
+
+.biblia-verses {
+    display: grid;
+    gap: 12px;
+}
+
+.biblia-verses p {
+    color: rgba(23,13,8,0.82);
+    font-size: 1.05rem;
+    line-height: 1.85;
+}
+
+.biblia-verses sup {
+    margin-right: 7px;
+    color: #5A321F;
+    font-weight: 900;
+}
+
+.biblia-source {
+    margin-top: var(--space-xl);
+    color: rgba(23,13,8,0.58);
+    font-size: 0.86rem;
+}
+
+.biblia-source a {
+    color: #5A321F;
+    font-weight: 800;
+}
+
+.biblia-shortcut-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-lg);
+}
+
+.biblia-shortcut-card {
+    min-height: 150px;
+    padding: var(--space-xl);
+    border-radius: 8px;
+    background: #FFFFFF;
+    border: 1px solid rgba(90,50,31,0.14);
+    color: #170D08;
+    text-align: left;
+    box-shadow: 0 16px 36px rgba(42,22,13,0.08);
+    transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.biblia-shortcut-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(90,50,31,0.32);
+}
+
+.biblia-shortcut-card svg {
+    width: 22px;
+    height: 22px;
+    color: #5A321F;
+    margin-bottom: var(--space-md);
+}
+
+.biblia-shortcut-card span,
+.biblia-shortcut-card strong {
+    display: block;
+}
+
+.biblia-shortcut-card span {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.biblia-shortcut-card strong {
+    margin-top: 7px;
+    color: rgba(23,13,8,0.68);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+    .biblia-reader-layout,
+    .biblia-shortcut-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .biblia-control-panel {
+        position: static;
     }
 }
 

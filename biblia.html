@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bíblia no app PWA da ADMAV Sede, com leitura por livro, capítulo e busca por referência.">
+    <title>Bíblia — ADMAV Sede</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ADMAV Sede">
+    <link rel="apple-touch-icon" href="media/icon-192.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="biblia-page">
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon"><img src="media/logo-oficial-admav.jpeg" alt="Logo oficial ADMAV"></div>
+                <div class="logo-text"><span class="logo-name">ADMAV</span><span class="logo-sub">Sede</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="sede.html" class="nav-link">Sede</a></li>
+                <li><a href="nossas-igrejas.html" class="nav-link">Igrejas</a></li>
+                <li><a href="redes.html" class="nav-link">Redes</a></li>
+                <li><a href="biblia.html" class="nav-link active">Bíblia</a></li>
+                <li><a href="programa-casados.html" class="nav-link">Casados</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-toggle-app" id="navToggle" aria-label="Menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero biblia-hero">
+        <div class="hero-bg">
+            <img src="media/admav-sede/SaveClip.App_671814920_18356585527232965_6686315749400975427_n.jpg" alt="ADMAV Sede reunida para ouvir a Palavra">
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge"><i data-lucide="book-open"></i><span>Palavra para hoje</span></div>
+            <h1 class="hero-title">
+                Bíblia
+                <span class="hero-title-accent">Leia a Palavra no app</span>
+            </h1>
+            <p class="hero-subtitle">Escolha um livro e capítulo, ou pesquise uma referência bíblica para leitura rápida.</p>
+            <div class="hero-actions">
+                <a href="#leitor-biblico" class="btn btn-primary"><i data-lucide="book-open"></i> Começar leitura</a>
+                <a href="#atalhos-biblicos" class="btn btn-glass"><i data-lucide="bookmark"></i> Atalhos</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section biblia-reader-section" id="leitor-biblico">
+            <div class="container">
+                <div class="biblia-reader-layout">
+                    <aside class="biblia-control-panel">
+                        <span class="section-tag">Leitura bíblica</span>
+                        <h2>Escolha a passagem</h2>
+                        <p>O texto é carregado online na tradução Almeida. A última leitura fica salva neste aparelho.</p>
+
+                        <form class="biblia-form" id="bibliaForm">
+                            <label for="bookSelect">Livro</label>
+                            <select id="bookSelect" name="book"></select>
+
+                            <label for="chapterSelect">Capítulo</label>
+                            <select id="chapterSelect" name="chapter"></select>
+
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <i data-lucide="search"></i>
+                                Ler capítulo
+                            </button>
+                        </form>
+
+                        <form class="biblia-reference-form" id="referenceForm">
+                            <label for="referenceInput">Buscar referência</label>
+                            <div class="biblia-reference-row">
+                                <input type="text" id="referenceInput" placeholder="Ex.: João 3:16">
+                                <button type="submit" class="btn btn-glass" aria-label="Buscar referência">
+                                    <i data-lucide="arrow-right"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </aside>
+
+                    <article class="biblia-reading-card" aria-live="polite">
+                        <div class="biblia-reading-header">
+                            <div>
+                                <span id="translationLabel">Almeida</span>
+                                <h2 id="passageTitle">Carregando...</h2>
+                            </div>
+                            <button class="biblia-icon-button" id="saveButton" type="button" aria-label="Salvar leitura">
+                                <i data-lucide="bookmark"></i>
+                            </button>
+                        </div>
+                        <div class="biblia-status" id="bibliaStatus">Preparando a leitura.</div>
+                        <div class="biblia-verses" id="bibliaVerses"></div>
+                        <div class="biblia-source">
+                            Texto carregado por <a href="https://bible-api.com/" target="_blank" rel="noopener noreferrer">bible-api.com</a>.
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section biblia-shortcuts-section" id="atalhos-biblicos">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Atalhos</span>
+                    <h2 class="section-title">Passagens para começar</h2>
+                    <p class="section-description">Toque em uma referência para abrir rapidamente no leitor bíblico.</p>
+                </div>
+                <div class="biblia-shortcut-grid" id="shortcutGrid"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contato">
+        <div class="footer-gradient"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <div class="logo-icon"><img src="media/logo-oficial-admav.jpeg" alt="Logo oficial ADMAV"></div>
+                        <div class="logo-text"><span class="logo-name">ADMAV</span><span class="logo-sub">Sede</span></div>
+                    </div>
+                    <p class="footer-desc">Ministério Mananciais de Vida. Levando a Palavra a todas as nações.</p>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sede.html">ADMAV Sede</a></li>
+                        <li><a href="redes.html">Redes</a></li>
+                        <li><a href="programa-casados.html">Programa Casados</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ADMAV Sede — Ministério Mananciais de Vida. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="side-drawer" id="sideDrawer">
+        <div class="drawer-header">
+            <span class="logo-name">ADMAV</span>
+            <button class="drawer-close" id="closeDrawer">&times;</button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="index.html" class="nav-link">Início</a>
+            <a href="sede.html" class="nav-link">ADMAV Sede</a>
+            <a href="nossas-igrejas.html" class="nav-link">Nossas Igrejas</a>
+            <a href="redes.html" class="nav-link">Redes</a>
+            <a href="biblia.html" class="nav-link active">Bíblia</a>
+            <a href="programa-casados.html" class="nav-link">Programa Casados</a>
+            <hr class="drawer-divider">
+            <a href="#contato" class="nav-link">Contato</a>
+        </nav>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item"><i data-lucide="home"></i><span>Início</span></a>
+        <a href="sede.html" class="bottom-nav-item"><i data-lucide="church"></i><span>Sede</span></a>
+        <a href="nossas-igrejas.html" class="bottom-nav-item"><i data-lucide="map-pin"></i><span>Igrejas</span></a>
+        <a href="redes.html" class="bottom-nav-item"><i data-lucide="network"></i><span>Redes</span></a>
+        <a href="biblia.html" class="bottom-nav-item active"><i data-lucide="book-open"></i><span>Bíblia</span></a>
+        <a href="programa-casados.html" class="bottom-nav-item"><i data-lucide="heart"></i><span>Casados</span></a>
+    </nav>
+
+    <script>
+        const books = [
+            ["Genesis", "Gênesis", 50], ["Exodus", "Êxodo", 40], ["Leviticus", "Levítico", 27], ["Numbers", "Números", 36], ["Deuteronomy", "Deuteronômio", 34],
+            ["Joshua", "Josué", 24], ["Judges", "Juízes", 21], ["Ruth", "Rute", 4], ["1 Samuel", "1 Samuel", 31], ["2 Samuel", "2 Samuel", 24],
+            ["1 Kings", "1 Reis", 22], ["2 Kings", "2 Reis", 25], ["1 Chronicles", "1 Crônicas", 29], ["2 Chronicles", "2 Crônicas", 36], ["Ezra", "Esdras", 10],
+            ["Nehemiah", "Neemias", 13], ["Esther", "Ester", 10], ["Job", "Jó", 42], ["Psalms", "Salmos", 150], ["Proverbs", "Provérbios", 31],
+            ["Ecclesiastes", "Eclesiastes", 12], ["Song of Solomon", "Cânticos", 8], ["Isaiah", "Isaías", 66], ["Jeremiah", "Jeremias", 52], ["Lamentations", "Lamentações", 5],
+            ["Ezekiel", "Ezequiel", 48], ["Daniel", "Daniel", 12], ["Hosea", "Oséias", 14], ["Joel", "Joel", 3], ["Amos", "Amós", 9],
+            ["Obadiah", "Obadias", 1], ["Jonah", "Jonas", 4], ["Micah", "Miquéias", 7], ["Nahum", "Naum", 3], ["Habakkuk", "Habacuque", 3],
+            ["Zephaniah", "Sofonias", 3], ["Haggai", "Ageu", 2], ["Zechariah", "Zacarias", 14], ["Malachi", "Malaquias", 4], ["Matthew", "Mateus", 28],
+            ["Mark", "Marcos", 16], ["Luke", "Lucas", 24], ["John", "João", 21], ["Acts", "Atos", 28], ["Romans", "Romanos", 16],
+            ["1 Corinthians", "1 Coríntios", 16], ["2 Corinthians", "2 Coríntios", 13], ["Galatians", "Gálatas", 6], ["Ephesians", "Efésios", 6], ["Philippians", "Filipenses", 4],
+            ["Colossians", "Colossenses", 4], ["1 Thessalonians", "1 Tessalonicenses", 5], ["2 Thessalonians", "2 Tessalonicenses", 3], ["1 Timothy", "1 Timóteo", 6], ["2 Timothy", "2 Timóteo", 4],
+            ["Titus", "Tito", 3], ["Philemon", "Filemom", 1], ["Hebrews", "Hebreus", 13], ["James", "Tiago", 5], ["1 Peter", "1 Pedro", 5],
+            ["2 Peter", "2 Pedro", 3], ["1 John", "1 João", 5], ["2 John", "2 João", 1], ["3 John", "3 João", 1], ["Jude", "Judas", 1],
+            ["Revelation", "Apocalipse", 22]
+        ];
+
+        const shortcuts = [
+            ["Psalms 23", "Salmos 23", "Cuidado e confiança"],
+            ["John 3:16", "João 3:16", "Amor de Deus"],
+            ["Romans 8", "Romanos 8", "Vida no Espírito"],
+            ["Matthew 6", "Mateus 6", "Oração e prioridade"],
+            ["Isaiah 53", "Isaías 53", "Redenção"],
+            ["Philippians 4", "Filipenses 4", "Paz e contentamento"]
+        ];
+
+        const bookSelect = document.getElementById("bookSelect");
+        const chapterSelect = document.getElementById("chapterSelect");
+        const passageTitle = document.getElementById("passageTitle");
+        const translationLabel = document.getElementById("translationLabel");
+        const statusEl = document.getElementById("bibliaStatus");
+        const versesEl = document.getElementById("bibliaVerses");
+        const saveButton = document.getElementById("saveButton");
+        let currentReference = "Psalms 23";
+
+        function fillBooks() {
+            bookSelect.innerHTML = books.map(([api, name]) => `<option value="${api}">${name}</option>`).join("");
+        }
+
+        function fillChapters() {
+            const selected = books.find(([api]) => api === bookSelect.value);
+            const total = selected ? selected[2] : 1;
+            chapterSelect.innerHTML = Array.from({ length: total }, (_, index) => `<option value="${index + 1}">${index + 1}</option>`).join("");
+        }
+
+        function readableReference(reference) {
+            return books.reduce((text, [api, name]) => text.replace(api, name), reference);
+        }
+
+        function normalizeReference(input) {
+            const clean = (value) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+            const normalizedInput = clean(input);
+            const match = [...books].sort((a, b) => b[1].length - a[1].length).find(([, name]) => normalizedInput.startsWith(clean(name)));
+            if (!match) return input;
+            return `${match[0]}${input.slice(match[1].length)}`;
+        }
+
+        function renderVerses(data, fallbackReference) {
+            const reference = data.reference || fallbackReference;
+            passageTitle.textContent = readableReference(reference);
+            translationLabel.textContent = data.translation?.name || "Almeida";
+            statusEl.textContent = "";
+            versesEl.innerHTML = (data.verses || []).map((verse) => `
+                <p><sup>${verse.verse}</sup>${verse.text}</p>
+            `).join("") || `<p>${data.text || "Nenhum texto encontrado para essa referência."}</p>`;
+            currentReference = fallbackReference;
+            localStorage.setItem("admav-biblia-last", JSON.stringify({ reference: fallbackReference, data }));
+            if (window.lucide) lucide.createIcons();
+        }
+
+        async function loadPassage(reference) {
+            const url = `https://bible-api.com/${encodeURIComponent(reference)}?translation=almeida`;
+            statusEl.textContent = "Carregando passagem...";
+            versesEl.innerHTML = "";
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error("Passagem não encontrada.");
+                const data = await response.json();
+                renderVerses(data, reference);
+            } catch (error) {
+                const saved = JSON.parse(localStorage.getItem("admav-biblia-last") || "null");
+                if (saved?.data) {
+                    renderVerses(saved.data, saved.reference);
+                    statusEl.textContent = "Sem conexão ou referência indisponível. Exibindo a última leitura salva neste aparelho.";
+                    return;
+                }
+                passageTitle.textContent = readableReference(reference);
+                statusEl.textContent = "Não foi possível carregar a passagem agora. Verifique a internet e tente novamente.";
+            }
+        }
+
+        function syncSelectorsFromReference(reference) {
+            const selected = books.find(([api]) => reference.startsWith(api));
+            if (!selected) return;
+            bookSelect.value = selected[0];
+            fillChapters();
+            const chapter = reference.replace(selected[0], "").trim().match(/\d+/)?.[0] || "1";
+            chapterSelect.value = chapter;
+        }
+
+        document.getElementById("bibliaForm").addEventListener("submit", (event) => {
+            event.preventDefault();
+            loadPassage(`${bookSelect.value} ${chapterSelect.value}`);
+        });
+
+        document.getElementById("referenceForm").addEventListener("submit", (event) => {
+            event.preventDefault();
+            const value = document.getElementById("referenceInput").value.trim();
+            if (value) loadPassage(normalizeReference(value));
+        });
+
+        saveButton.addEventListener("click", () => {
+            localStorage.setItem("admav-biblia-favorite", currentReference);
+            statusEl.textContent = `${readableReference(currentReference)} foi salvo neste aparelho.`;
+        });
+
+        document.getElementById("shortcutGrid").innerHTML = shortcuts.map(([api, title, desc]) => `
+            <button class="biblia-shortcut-card" type="button" data-reference="${api}">
+                <i data-lucide="book-open"></i>
+                <span>${title}</span>
+                <strong>${desc}</strong>
+            </button>
+        `).join("");
+
+        document.querySelectorAll(".biblia-shortcut-card").forEach((button) => {
+            button.addEventListener("click", () => {
+                const reference = button.dataset.reference;
+                syncSelectorsFromReference(reference);
+                loadPassage(reference);
+                document.getElementById("leitor-biblico").scrollIntoView({ behavior: "smooth" });
+            });
+        });
+
+        fillBooks();
+        fillChapters();
+        bookSelect.addEventListener("change", fillChapters);
+
+        const favorite = localStorage.getItem("admav-biblia-favorite");
+        const last = JSON.parse(localStorage.getItem("admav-biblia-last") || "null");
+        const initialReference = favorite || last?.reference || "Psalms 23";
+        syncSelectorsFromReference(initialReference);
+        loadPassage(initialReference);
+    </script>
+    <script src="script.js"></script>
+
+</body>
+</html>
