@@ -37,6 +37,43 @@ function sendFile(res, absolutePath) {
   createReadStream(absolutePath).pipe(res);
 }
 
+function sendHeadOnly(res, absolutePath) {
+  const ext = extname(absolutePath).toLowerCase();
+  const contentType = mimeTypes[ext] || 'application/octet-stream';
+  const { size } = statSync(absolutePath);
+
+  res.writeHead(200, {
+    'Content-Type': contentType,
+    'Content-Length': size,
+    'Cache-Control': ext === '.html' ? 'no-cache' : 'public, max-age=3600'
+  });
+  res.end();
+}
+
+function parseRequestPath(urlValue) {
+  const rawPath = (urlValue || '/').split('?')[0];
+  let decodedPath;
+
+  try {
+    decodedPath = decodeURIComponent(rawPath);
+  } catch {
+    decodedPath = rawPath;
+  }
+
+  const normalizedPath = normalize(decodedPath);
+  return normalizedPath === '/' ? '/index.html' : normalizedPath;
+}
+
+function isHtmlNavigation(req, requestPath) {
+  const accept = String(req.headers.accept || '');
+  const secFetchDest = String(req.headers['sec-fetch-dest'] || '');
+  const requestExt = extname(requestPath).toLowerCase();
+
+  if (requestExt === '.html' || requestExt === '') return true;
+  if (secFetchDest === 'document') return true;
+  return accept.includes('text/html');
+}
+
 createServer((req, res) => {
   const method = req.method || 'GET';
   if (method !== 'GET' && method !== 'HEAD') {
@@ -45,8 +82,7 @@ createServer((req, res) => {
     return;
   }
 
-  const rawPath = (req.url || '/').split('?')[0];
-  const requestPath = rawPath === '/' ? '/index.html' : normalize(rawPath);
+  const requestPath = parseRequestPath(req.url);
   const absolutePath = resolve(rootDir, `.${requestPath}`);
 
   if (!absolutePath.startsWith(rootDir)) {
@@ -57,20 +93,28 @@ createServer((req, res) => {
 
   if (existsSync(absolutePath) && statSync(absolutePath).isFile()) {
     if (method === 'HEAD') {
-      const ext = extname(absolutePath).toLowerCase();
-      res.writeHead(200, {
-        'Content-Type': mimeTypes[ext] || 'application/octet-stream'
-      });
-      res.end();
+      sendHeadOnly(res, absolutePath);
       return;
     }
     sendFile(res, absolutePath);
     return;
   }
 
-  const fallback = join(rootDir, 'index.html');
-  if (existsSync(fallback)) {
-    sendFile(res, fallback);
+  if (isHtmlNavigation(req, requestPath)) {
+    const fallback = join(rootDir, 'index.html');
+    if (existsSync(fallback)) {
+      if (method === 'HEAD') {
+        sendHeadOnly(res, fallback);
+        return;
+      }
+      sendFile(res, fallback);
+      return;
+    }
+  }
+
+  if (method === 'HEAD') {
+    res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+    res.end();
     return;
   }
 
