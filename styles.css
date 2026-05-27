@@ -875,6 +875,17 @@ input, textarea, select {
     color: rgba(23, 13, 8, 0.68);
 }
 
+.home-cream-section .section-tag,
+.home-page .section-about .section-tag,
+.home-page .section-schedule .section-tag,
+.home-social-section .section-tag,
+.redes-section .section-tag {
+    background: #FFF8F0;
+    border: 1px solid rgba(90,50,31,0.18);
+    color: #5A321F;
+    box-shadow: 0 10px 28px rgba(42,22,13,0.08);
+}
+
 .home-cream-section .section-title,
 .home-cream-section h2,
 .home-cream-section h3,
@@ -894,11 +905,6 @@ input, textarea, select {
 .home-page .section-schedule h3,
 .home-page .section-schedule h4 {
     color: #170D08;
-}
-
-.home-page .section-about .section-tag,
-.home-page .section-schedule .section-tag {
-    color: #5A321F;
 }
 
 .home-page .section-about .section-description,
@@ -970,9 +976,35 @@ input, textarea, select {
 
 .home-brown-section {
     background:
-        radial-gradient(ellipse at 20% 0%, rgba(248,241,232,0.12), transparent 52%),
-        linear-gradient(180deg, #2A160D 0%, #120906 100%);
-    color: #F8F1E8;
+        radial-gradient(ellipse at 20% 0%, rgba(255,255,255,0.45), transparent 52%),
+        linear-gradient(180deg, #F1E2D0 0%, #E7D2B4 100%);
+    color: #170D08;
+}
+
+.home-brown-section .section-tag {
+    background: #FFFFFF;
+    border-color: rgba(90,50,31,0.2);
+    color: #5A321F;
+    box-shadow: 0 10px 28px rgba(42,22,13,0.08);
+}
+
+.home-brown-section .section-title,
+.home-brown-section h2,
+.home-brown-section h3 {
+    color: #170D08;
+}
+
+.home-brown-section .section-description,
+.home-brown-section p {
+    color: rgba(23,13,8,0.7);
+}
+
+.home-brown-section .text-gradient-light {
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: #5A321F;
+    background-clip: initial;
+    color: #5A321F;
 }
 
 .home-leadership-layout {
@@ -1105,20 +1137,21 @@ input, textarea, select {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1px;
     margin-top: var(--space-3xl);
-    background: rgba(248,241,232,0.16);
-    border: 1px solid rgba(248,241,232,0.16);
+    background: rgba(90,50,31,0.14);
+    border: 1px solid rgba(90,50,31,0.14);
+    box-shadow: 0 20px 54px rgba(42,22,13,0.1);
 }
 
 .home-culture-card {
     min-height: 220px;
     padding: var(--space-xl);
-    background: rgba(23,13,8,0.64);
+    background: #FFF8F0;
 }
 
 .home-culture-card svg {
     width: 26px;
     height: 26px;
-    color: #E7D2B4;
+    color: #5A321F;
     margin-bottom: var(--space-lg);
 }
 
@@ -1130,7 +1163,7 @@ input, textarea, select {
 }
 
 .home-culture-card p {
-    color: rgba(248,241,232,0.68);
+    color: rgba(23,13,8,0.7);
     font-size: 0.94rem;
     line-height: 1.65;
 }
