@@ -1,8 +1,0 @@
-{
-  "$schema": "https://railway.com/railway.schema.json",
-  "deploy": {
-    "variables": {
-      "RAILPACK_SPA_OUTPUT_DIR": "."
-    }
-  }
-}

@@ -42,7 +42,7 @@ run("public pages use local branch media instead of stock imagery", () => {
         assert.doesNotMatch(html, /images\.unsplash\.com/i);
     }
     const home = read("index.html");
-    assert.match(home, /media\/pastores presidentes\/WhatsApp Image 2026-04-28 at 16\.59\.54\.jpeg/);
+    assert.match(home, /media\/pastores-presidentes\/pr-rogerio-barros\.jpeg/);
     for (const page of ["sede.html", "colonia.html", "campo-grande.html", "praca-seca.html", "recreio.html"]) {
         assert.match(read(page), /branch-gallery/);
     }
