@@ -2,7 +2,9 @@
   "name": "admav-site",
   "private": true,
   "type": "module",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "node tests/run-tests.mjs"
   }
 }
