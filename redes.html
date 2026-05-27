@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Redes da ADMAV Sede: conheça as redes, ministérios e áreas de serviço da nossa igreja.">
+    <title>Redes da ADMAV Sede — ADMAV Mananciais de Vida</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ADMAV Sede">
+    <link rel="apple-touch-icon" href="media/icon-192.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="redes-page">
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon"><img src="media/logo-oficial-admav.jpeg" alt="Logo oficial ADMAV"></div>
+                <div class="logo-text"><span class="logo-name">ADMAV</span><span class="logo-sub">Sede</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="sede.html" class="nav-link">Sede</a></li>
+                <li><a href="nossas-igrejas.html" class="nav-link">Igrejas</a></li>
+                <li><a href="redes.html" class="nav-link active">Redes</a></li>
+                <li><a href="programa-casados.html" class="nav-link">Casados</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-toggle-app" id="navToggle" aria-label="Menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero redes-hero">
+        <div class="hero-bg">
+            <img src="media/admav-sede/SaveClip.App_671936032_18356306497232965_236609382575418521_n.jpg" alt="ADMAV Sede reunida em culto">
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge"><i data-lucide="network"></i><span>Serviço e comunhão</span></div>
+            <h1 class="hero-title">
+                Redes da ADMAV Sede
+                <span class="hero-title-accent">Ministérios e áreas de serviço</span>
+            </h1>
+            <p class="hero-subtitle">Conheça as redes, ministérios e áreas de serviço da nossa igreja.</p>
+            <div class="hero-actions">
+                <a href="#lista-redes" class="btn btn-primary"><i data-lucide="layout-grid"></i> Ver redes</a>
+                <a href="#contato-redes" class="btn btn-glass"><i data-lucide="message-circle"></i> Quero conhecer</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section redes-section" id="lista-redes">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">ADMAV Sede</span>
+                    <h2 class="section-title">Uma igreja servindo em várias frentes</h2>
+                    <p class="section-description">Cada rede contribui para acolher, formar, cuidar e organizar a vida da igreja.</p>
+                </div>
+
+                <div class="redes-grid" id="redesGrid" aria-label="Redes e ministérios da ADMAV Sede"></div>
+            </div>
+        </section>
+
+        <section class="section redes-cta-section" id="contato-redes">
+            <div class="container">
+                <div class="redes-cta-panel">
+                    <div>
+                        <span class="section-tag">Faça parte</span>
+                        <h2>Quer conhecer uma rede?</h2>
+                        <p>Venha em uma programação da ADMAV Sede e descubra onde caminhar, servir e crescer em comunhão.</p>
+                    </div>
+                    <a href="sede.html#visita" class="btn btn-primary">
+                        <i data-lucide="calendar"></i>
+                        Ver horários da Sede
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contato">
+        <div class="footer-gradient"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <div class="logo-icon"><img src="media/logo-oficial-admav.jpeg" alt="Logo oficial ADMAV"></div>
+                        <div class="logo-text"><span class="logo-name">ADMAV</span><span class="logo-sub">Sede</span></div>
+                    </div>
+                    <p class="footer-desc">Ministério Mananciais de Vida. Levando a Palavra a todas as nações.</p>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sede.html">ADMAV Sede</a></li>
+                        <li><a href="nossas-igrejas.html">Nossas Igrejas</a></li>
+                        <li><a href="programa-casados.html">Programa Casados</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ADMAV Sede — Ministério Mananciais de Vida. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="side-drawer" id="sideDrawer">
+        <div class="drawer-header">
+            <span class="logo-name">ADMAV</span>
+            <button class="drawer-close" id="closeDrawer">&times;</button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="index.html" class="nav-link">Início</a>
+            <a href="sede.html" class="nav-link">ADMAV Sede</a>
+            <a href="nossas-igrejas.html" class="nav-link">Nossas Igrejas</a>
+            <a href="redes.html" class="nav-link active">Redes</a>
+            <a href="programa-casados.html" class="nav-link">Programa Casados</a>
+            <hr class="drawer-divider">
+            <a href="#contato" class="nav-link">Contato</a>
+        </nav>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item">
+            <i data-lucide="home"></i>
+            <span>Início</span>
+        </a>
+        <a href="sede.html" class="bottom-nav-item">
+            <i data-lucide="church"></i>
+            <span>Sede</span>
+        </a>
+        <a href="nossas-igrejas.html" class="bottom-nav-item">
+            <i data-lucide="map-pin"></i>
+            <span>Igrejas</span>
+        </a>
+        <a href="redes.html" class="bottom-nav-item active">
+            <i data-lucide="network"></i>
+            <span>Redes</span>
+        </a>
+        <a href="programa-casados.html" class="bottom-nav-item">
+            <i data-lucide="heart"></i>
+            <span>Casados</span>
+        </a>
+    </nav>
+
+    <script>
+        const redes = [
+            { nome: "Bem-vindo", funcao: "Acolhe quem chega e facilita os primeiros passos na igreja.", icone: "hand-heart" },
+            { nome: "EBD", funcao: "Promove estudo bíblico, doutrina e formação cristã contínua.", icone: "book-open" },
+            { nome: "Level Teen", funcao: "Acompanha adolescentes em comunhão, Palavra e identidade cristã.", icone: "badge" },
+            { nome: "Level Up", funcao: "Conecta jovens em crescimento espiritual, comunhão e propósito.", icone: "rocket" },
+            { nome: "Level Kids", funcao: "Cuida das crianças com ensino bíblico, segurança e linguagem adequada.", icone: "baby" },
+            { nome: "Ministros Sede", funcao: "Serve nas ministrações e apoia a organização dos momentos de culto.", icone: "mic-2" },
+            { nome: "Ceia", funcao: "Prepara e organiza os elementos da ceia com zelo e reverência.", icone: "cup-soda" },
+            { nome: "Estacionamento", funcao: "Orienta o fluxo de chegada e saída para melhorar o acesso à igreja.", icone: "car" },
+            { nome: "Homens", funcao: "Fortalece homens em fé, responsabilidade, comunhão e maturidade espiritual.", icone: "shield" },
+            { nome: "Mulheres", funcao: "Promove comunhão, cuidado, Palavra e fortalecimento espiritual.", icone: "heart" },
+            { nome: "Rede da Família", funcao: "Apoia famílias com comunhão, cuidado e princípios bíblicos para o lar.", icone: "home" },
+            { nome: "Intercessão", funcao: "Sustenta a igreja em oração, clamor e cobertura espiritual.", icone: "flame" },
+            { nome: "Consolidação", funcao: "Acompanha decisões de fé e fortalece a caminhada de novos membros.", icone: "badge-check" },
+            { nome: "Diaconisas", funcao: "Serve a igreja com ordem, cuidado, apoio e atenção aos cultos.", icone: "hands" },
+            { nome: "Diáconos", funcao: "Serve a igreja com apoio, organização e atenção às necessidades dos cultos.", icone: "helping-hand" },
+            { nome: "Louvor", funcao: "Conduz a igreja em adoração, expressão musical e ambiente de culto.", icone: "music" },
+            { nome: "Mídia", funcao: "Cuida da comunicação visual, transmissão, imagem e registros da igreja.", icone: "camera" },
+            { nome: "ADMAV no Lar", funcao: "Promove comunhão e edificação em encontros nos lares.", icone: "house" },
+            { nome: "Dança", funcao: "Expressa adoração por meio de movimento, entrega e sensibilidade espiritual.", icone: "sparkles" },
+            { nome: "Ornamentação", funcao: "Prepara ambientes com beleza, cuidado e identidade visual para cada ocasião.", icone: "flower-2" },
+            { nome: "Recepção", funcao: "Recebe pessoas com atenção, direção e ambiente acolhedor.", icone: "door-open" },
+            { nome: "Manutenção", funcao: "Preserva a estrutura da igreja com cuidado, reparos e organização.", icone: "wrench" },
+            { nome: "Secretaria", funcao: "Organiza documentos, informações e suporte administrativo da igreja.", icone: "file-text" },
+            { nome: "Tesouraria", funcao: "Cuida dos processos financeiros com organização e responsabilidade.", icone: "wallet" },
+            { nome: "IBMAV", funcao: "Oferece formação bíblica e teológica para crescimento ministerial.", icone: "graduation-cap" },
+            { nome: "IBMAV Avançado", funcao: "Aprofunda estudos bíblicos e preparação para serviço cristão.", icone: "library" },
+            { nome: "Conselho de Ética", funcao: "Zela por princípios, conduta e alinhamento institucional.", icone: "scale" },
+            { nome: "Tarde da Vitória", funcao: "Reúne fé, oração, Palavra e fortalecimento espiritual durante a semana.", icone: "sun" }
+        ];
+
+        const grid = document.getElementById("redesGrid");
+        grid.innerHTML = redes.map((rede) => `
+            <article class="rede-card">
+                <div class="rede-card-icon"><i data-lucide="${rede.icone}"></i></div>
+                <h3>${rede.nome}</h3>
+                <p>${rede.funcao}</p>
+                <a href="#contato-redes" class="rede-card-cta">Conhecer <i data-lucide="arrow-right"></i></a>
+            </article>
+        `).join("");
+    </script>
+    <script src="script.js"></script>
+
+</body>
+</html>

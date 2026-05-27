@@ -1,6 +1,6 @@
-/* ADMAV PWA - Service Worker v6 */
+/* ADMAV PWA - Service Worker v7 */
 
-const CACHE_VERSION = 'v6';
+const CACHE_VERSION = 'v7';
 const SHELL_CACHE = `admav-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `admav-runtime-${CACHE_VERSION}`;
 const APP_SHELL = [
@@ -8,6 +8,7 @@ const APP_SHELL = [
     './index.html',
     './sede.html',
     './nossas-igrejas.html',
+    './redes.html',
     './programa-casados.html',
     './freguesia.html',
     './colonia.html',

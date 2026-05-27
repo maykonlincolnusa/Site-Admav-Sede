@@ -637,12 +637,14 @@ input, textarea, select {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 1;
+    min-width: 0;
     gap: 4px;
     color: var(--text-muted);
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 600;
     transition: color var(--transition-base);
-    padding: 8px 12px;
+    padding: 8px 4px;
     border-radius: var(--radius-md);
     text-transform: uppercase;
     letter-spacing: 0.03em;
@@ -1855,6 +1857,21 @@ input, textarea, select {
     color: #170D08;
 }
 
+.home-social-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: var(--space-2xl);
+    align-items: center;
+}
+
+.home-social-copy {
+    max-width: 560px;
+}
+
+.home-social-copy .btn {
+    margin-top: var(--space-xl);
+}
+
 .home-social-section .section-title,
 .home-social-section h2 {
     color: #170D08;
@@ -1868,14 +1885,129 @@ input, textarea, select {
     color: rgba(23,13,8,0.68);
 }
 
-.social-church-grid {
+.official-social-panel {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: var(--space-lg);
 }
 
-.social-church-link {
-    min-height: 128px;
+.official-social-group {
+    padding: var(--space-xl);
+    border-radius: 8px;
+    background: #FFFFFF;
+    border: 1px solid rgba(90,50,31,0.14);
+    box-shadow: 0 18px 48px rgba(42,22,13,0.08);
+    display: grid;
+    gap: 12px;
+}
+
+.official-social-label {
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #5A321F;
+}
+
+.official-social-link {
+    min-height: 74px;
+    padding: 14px;
+    border-radius: 8px;
+    background: #F8F1E8;
+    border: 1px solid rgba(90,50,31,0.12);
+    color: #170D08;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 14px;
+    transition: transform var(--transition-base), border-color var(--transition-base), background var(--transition-base);
+}
+
+.official-social-link:hover {
+    transform: translateY(-2px);
+    border-color: rgba(90,50,31,0.34);
+    background: #FFF8F0;
+}
+
+.official-social-main {
+    background: #2A1B12;
+    color: #FFFFFF;
+}
+
+.official-social-main:hover {
+    background: #362317;
+}
+
+.official-social-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background: rgba(90,50,31,0.12);
+    color: #8A5A36;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.official-social-main .official-social-icon {
+    background: rgba(255,255,255,0.14);
+    color: #FFFFFF;
+}
+
+.official-social-icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+.official-social-link strong,
+.official-social-link small {
+    display: block;
+}
+
+.official-social-link strong {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.official-social-link small {
+    margin-top: 2px;
+    color: currentColor;
+    opacity: 0.68;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+    .home-social-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.redes-hero .hero-bg img {
+    object-position: center 35%;
+}
+
+.redes-section {
+    background: #F8F1E8;
+    color: #170D08;
+}
+
+.redes-section .section-title,
+.redes-section h2 {
+    color: #170D08;
+}
+
+.redes-section .section-description {
+    color: rgba(23,13,8,0.68);
+}
+
+.redes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-lg);
+}
+
+.rede-card {
+    min-height: 244px;
     padding: var(--space-xl);
     border-radius: 8px;
     background: #FFFFFF;
@@ -1884,38 +2016,121 @@ input, textarea, select {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    gap: 8px;
+    gap: 12px;
     color: #170D08;
     transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
-.social-church-link:hover {
+.rede-card:hover {
     transform: translateY(-4px);
     border-color: rgba(90,50,31,0.32);
     box-shadow: 0 22px 48px rgba(42,22,13,0.14);
 }
 
-.social-church-link svg {
-    width: 24px;
-    height: 24px;
-    color: #8A5A36;
+.rede-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background: #F3E6D7;
+    color: #5A321F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.social-church-link span {
-    font-size: 0.78rem;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+.rede-card-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.rede-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.18rem;
+    line-height: 1.2;
     color: #5A321F;
 }
 
-.social-church-link strong {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    line-height: 1.12;
+.rede-card p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: rgba(23,13,8,0.72);
+    flex: 1;
+}
+
+.rede-card-cta {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.84rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: #170D08;
-    overflow-wrap: anywhere;
+}
+
+.rede-card-cta svg {
+    width: 16px;
+    height: 16px;
+    transition: transform var(--transition-base);
+}
+
+.rede-card:hover .rede-card-cta svg {
+    transform: translateX(3px);
+}
+
+.redes-cta-section {
+    background: #170D08;
+}
+
+.redes-cta-panel {
+    padding: var(--space-2xl);
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(248,241,232,0.12), rgba(90,50,31,0.2));
+    border: 1px solid rgba(248,241,232,0.14);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--space-xl);
+    align-items: center;
+}
+
+.redes-cta-panel h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+    color: var(--text-primary);
+    margin: 8px 0;
+}
+
+.redes-cta-panel p {
+    color: var(--text-secondary);
+    max-width: 720px;
+}
+
+@media (max-width: 1100px) {
+    .redes-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .redes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .redes-cta-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .redes-cta-panel .btn {
+        width: 100%;
+    }
+}
+
+@media (min-width: 761px) and (max-width: 980px) {
+    .redes-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 

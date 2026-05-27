@@ -172,7 +172,7 @@ function animateCounter(el) {
 /* ─── Scroll Reveal ─── */
 function initScrollReveal() {
     const targets = document.querySelectorAll(
-        '.about-card, .branch-card, .schedule-card, .about-verse, .agenda-card, .glass-card, .neu-card, .casados-section, .casados-pillar'
+        '.about-card, .branch-card, .schedule-card, .about-verse, .agenda-card, .glass-card, .neu-card, .casados-section, .casados-pillar, .rede-card'
     );
 
     if (!targets.length) return;
