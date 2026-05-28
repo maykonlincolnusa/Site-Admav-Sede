@@ -84,7 +84,7 @@ run("index exposes the home session for Casados, Intercessao and IBMAV", () => {
     assert.match(html, /Terca de Intercessao/);
     assert.match(html, /IBMAV/);
     assert.match(html, /href="programa-casados\.html"/);
-    for (const token of ["Pastores presidentes", "Cultura ADMAV", "Primeira visita", "home-branch-showcase"]) {
+    for (const token of ["Pastor presidente", "Cultura ADMAV", "Primeira visita", "home-branch-showcase"]) {
         assert.match(html, new RegExp(token));
     }
 });
