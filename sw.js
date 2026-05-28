@@ -82,7 +82,12 @@ async function networkFirst(request) {
     } catch {
         const cached = await caches.match(request);
         if (cached) return cached;
-        if (request.mode === 'navigate') return caches.match('./index.html');
+        if (request.mode === 'navigate') {
+            if (new URL(request.url).pathname.endsWith('/redes')) {
+                return caches.match('./redes.html');
+            }
+            return caches.match('./index.html');
+        }
         throw new Error('Offline asset unavailable');
     }
 }

@@ -8,12 +8,20 @@
     /* Core Palette */
     --bg-main: #F8F9F0;
     --bg-alt: #EFDFBB;
-    --bg-card: #FFFFFF;
+    --bg-card: rgba(248, 249, 240, 0.86);
     --bg-card-hover: #F8F9F0;
 
     /* Brand Colors */
-    --primary-brown: #82502D;
-    --primary-brown-light: #AE7349;
+    --admav-brown-dark: #82502D;
+    --admav-copper: #A15F2A;
+    --admav-brown-medium: #AE7349;
+    --admav-gold: #C99251;
+    --admav-cream: #EFDFBB;
+    --admav-white-soft: #F8F9F0;
+    --admav-text-dark: #1A120D;
+    --admav-text-light: #FFFFFF;
+    --primary-brown: var(--admav-brown-dark);
+    --primary-brown-light: var(--admav-brown-medium);
     --primary-brown-glow: rgba(130, 80, 45, 0.2);
     --primary-gold: #C99251;
     --primary-gold-light: #EFDFBB;
@@ -28,15 +36,15 @@
     --text-white-muted: rgba(26, 18, 13, 0.55);
 
     /* Glass */
-    --glass-bg: rgba(255, 255, 255, 0.85);
-    --glass-bg-hover: rgba(255, 255, 255, 0.95);
-    --glass-border: rgba(130, 80, 45, 0.08);
-    --glass-border-hover: rgba(130, 80, 45, 0.15);
+    --glass-bg: rgba(248, 249, 240, 0.82);
+    --glass-bg-hover: rgba(248, 249, 240, 0.94);
+    --glass-border: rgba(130, 80, 45, 0.10);
+    --glass-border-hover: rgba(201, 146, 81, 0.34);
     --glass-blur: 24px;
 
     /* Typography */
-    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-    --font-display: 'Outfit', 'Inter', system-ui, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Inter, Arial, sans-serif;
+    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Inter, Arial, sans-serif;
 
     /* Spacing */
     --space-xs: 4px;
@@ -46,34 +54,34 @@
     --space-xl: 24px;
     --space-2xl: 40px;
     --space-3xl: 60px;
-    --space-4xl: 80px;
+    --space-4xl: clamp(96px, 10vw, 140px);
 
     /* Radius */
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
-    --radius-xl: 20px;
-    --radius-2xl: 24px;
+    --radius-xl: 24px;
+    --radius-2xl: 32px;
     --radius-full: 9999px;
 
     /* Transitions */
-    --transition-fast: 0.15s ease;
-    --transition-base: 0.3s ease;
-    --transition-slow: 0.5s ease;
-    --transition-spring: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-fast: 180ms ease;
+    --transition-base: 220ms ease;
+    --transition-slow: 420ms ease;
+    --transition-spring: 260ms cubic-bezier(0.2, 0, 0, 1);
 
     /* Gradients */
-    --gradient-accent: linear-gradient(135deg, #EFDFBB 0%, #C99251 45%, #82502D 100%);
-    --gradient-badge: linear-gradient(135deg, #82502D 0%, #A15F2A 52%, #1A120D 100%);
-    --gradient-text: linear-gradient(135deg, #AE7349, #82502D 45%, #1A120D);
-    --gradient-hero: linear-gradient(180deg, rgba(26,18,13,0.3) 0%, var(--bg-main) 95%);
+    --gradient-accent: linear-gradient(135deg, #D6A869 0%, #C99251 58%, #A15F2A 100%);
+    --gradient-badge: linear-gradient(135deg, rgba(248,249,240,0.18), rgba(239,223,187,0.08));
+    --gradient-text: linear-gradient(135deg, #C99251, #AE7349 46%, #82502D);
+    --gradient-hero: linear-gradient(145deg, #82502D 0%, #A15F2A 48%, #1A120D 100%);
     --gradient-card: linear-gradient(145deg, rgba(255,255,255,1), rgba(248,249,240,0.8));
 
     /* Shadows */
-    --shadow-sm: 0 2px 8px rgba(130, 80, 45, 0.04);
-    --shadow-md: 0 8px 24px rgba(130, 80, 45, 0.08);
-    --shadow-lg: 0 16px 48px rgba(130, 80, 45, 0.12);
-    --shadow-glow: 0 4px 20px var(--primary-brown-glow);
+    --shadow-sm: 0 8px 24px rgba(26, 18, 13, 0.04);
+    --shadow-md: 0 20px 60px rgba(26, 18, 13, 0.08);
+    --shadow-lg: 0 28px 80px rgba(26, 18, 13, 0.12);
+    --shadow-glow: 0 18px 42px rgba(201, 146, 81, 0.24);
 
     /* PWA Safe Areas */
     --safe-area-top: env(safe-area-inset-top, 0px);
@@ -3600,5 +3608,400 @@ input, textarea, select {
 @media (min-width: 769px) and (max-width: 1024px) {
     .branches-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ADMAV Apple-like refinement
+   ═══════════════════════════════════════════════════════════════ */
+body {
+    background:
+        linear-gradient(180deg, var(--admav-white-soft) 0%, #FFFFFF 42%, var(--admav-cream) 100%);
+    color: var(--admav-text-dark);
+}
+
+.container,
+.nav-container {
+    max-width: 1240px;
+}
+
+.section {
+    padding: clamp(96px, 10vw, 140px) 0;
+}
+
+.section-header {
+    max-width: 760px;
+    margin-bottom: clamp(40px, 6vw, 72px);
+}
+
+.section-title,
+.hero-title,
+.home-leadership-copy h2,
+.home-visit-panel h2,
+.redes-cta-panel h2 {
+    letter-spacing: 0;
+}
+
+.section-title {
+    font-size: clamp(2.25rem, 4.8vw, 3rem);
+    line-height: 1.08;
+    font-weight: 800;
+}
+
+.section-description,
+.hero-subtitle {
+    font-size: clamp(1rem, 1.8vw, 1.125rem);
+    line-height: 1.72;
+}
+
+.navbar,
+.navbar.scrolled {
+    background: rgba(130, 80, 45, 0.86);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: none;
+}
+
+.navbar.scrolled .logo-name,
+.logo-name {
+    color: var(--admav-text-light);
+}
+
+.navbar.scrolled .logo-sub,
+.logo-sub {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.nav-link,
+.navbar.scrolled .nav-link {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.88rem;
+    font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active,
+.navbar.scrolled .nav-link:hover,
+.navbar.scrolled .nav-link.active {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.nav-toggle-app,
+.navbar.scrolled .nav-toggle-app {
+    color: #FFFFFF;
+}
+
+.nav-toggle-app svg,
+.nav-toggle-app i,
+.navbar.scrolled .nav-toggle-app svg,
+.navbar.scrolled .nav-toggle-app i {
+    color: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+}
+
+.nav-toggle-app:focus-visible,
+.drawer-close:focus-visible,
+.nav-link:focus-visible,
+.btn:focus-visible,
+.bottom-nav-item:focus-visible {
+    outline: 3px solid rgba(201, 146, 81, 0.72);
+    outline-offset: 3px;
+}
+
+.side-drawer {
+    background: rgba(248, 249, 240, 0.94);
+    border-left: 1px solid rgba(130, 80, 45, 0.12);
+    box-shadow: -30px 0 80px rgba(26, 18, 13, 0.18);
+}
+
+.drawer-nav .nav-link {
+    color: var(--admav-text-dark);
+}
+
+.drawer-nav .nav-link:hover,
+.drawer-nav .nav-link.active {
+    color: var(--admav-brown-dark);
+    background: rgba(201, 146, 81, 0.16);
+}
+
+.bottom-nav {
+    background: rgba(248, 249, 240, 0.92);
+    border-top: 1px solid rgba(130, 80, 45, 0.12);
+}
+
+.hero {
+    min-height: clamp(720px, 94vh, 920px);
+    background: var(--gradient-hero);
+}
+
+.home-hero .hero-bg img,
+.redes-hero .hero-bg img {
+    opacity: 0.24;
+    filter: brightness(0.72) contrast(1.04) saturate(0.72);
+}
+
+.hero-gradient {
+    background:
+        radial-gradient(circle at 78% 16%, rgba(201, 146, 81, 0.20), transparent 32%),
+        linear-gradient(135deg, rgba(130, 80, 45, 0.96) 0%, rgba(161, 95, 42, 0.88) 44%, rgba(26, 18, 13, 0.92) 100%);
+}
+
+.hero-orbs {
+    display: none;
+}
+
+.hero-title {
+    color: #FFFFFF;
+    font-size: clamp(3rem, 7vw, 4.5rem);
+    line-height: 1.04;
+    font-weight: 800;
+}
+
+.hero-title-accent {
+    color: var(--admav-cream);
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: currentColor;
+    background-clip: initial;
+    font-size: clamp(1.08rem, 2vw, 1.5rem);
+    letter-spacing: 0;
+}
+
+.hero-subtitle {
+    color: rgba(248, 249, 240, 0.84);
+    max-width: 680px;
+}
+
+.hero-badge {
+    background: rgba(248, 249, 240, 0.12);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: none;
+    letter-spacing: 0;
+}
+
+.hero-badge svg {
+    color: var(--admav-gold);
+}
+
+.stat-number,
+.stat-label,
+.scroll-indicator {
+    color: rgba(248, 249, 240, 0.86);
+}
+
+.btn {
+    min-height: 50px;
+    padding: 14px 24px;
+    border-radius: var(--radius-full);
+    font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+    font-weight: 650;
+    letter-spacing: 0;
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.btn-primary,
+.home-page .section-schedule .btn-primary,
+.home-page .home-cream-section .btn-primary {
+    background: var(--admav-gold);
+    color: var(--admav-text-dark);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 18px 36px rgba(26, 18, 13, 0.14);
+}
+
+.btn-primary:hover,
+.home-page .section-schedule .btn-primary:hover,
+.home-page .home-cream-section .btn-primary:hover {
+    background: #D7A968;
+    color: var(--admav-text-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 24px 50px rgba(26, 18, 13, 0.16);
+    filter: none;
+}
+
+.btn-glass,
+.home-page .schedule-card .btn-glass {
+    background: rgba(248, 249, 240, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #FFFFFF;
+}
+
+.home-page .section-about .btn-glass,
+.home-page .home-social-section .btn-glass,
+.branch-card .btn-glass,
+.rede-card .btn-glass {
+    color: var(--admav-brown-dark);
+    background: rgba(255, 255, 255, 0.72);
+    border-color: rgba(130, 80, 45, 0.12);
+}
+
+.btn-glass:hover,
+.home-page .schedule-card .btn-glass:hover {
+    background: rgba(248, 249, 240, 0.22);
+    border-color: rgba(201, 146, 81, 0.48);
+    color: #FFFFFF;
+}
+
+.neu-card,
+.glass-card,
+.about-card,
+.schedule-card,
+.branch-card,
+.home-president-card,
+.home-culture-card,
+.home-visit-panel,
+.home-visit-step,
+.official-social-group,
+.official-social-link,
+.church-card,
+.biblia-control-panel,
+.biblia-reading-card,
+.biblia-shortcut-card,
+.casados-section,
+.casados-pillar {
+    border-radius: var(--radius-2xl);
+    background: rgba(248, 249, 240, 0.86);
+    border: 1px solid rgba(130, 80, 45, 0.10);
+    box-shadow: 0 20px 60px rgba(26, 18, 13, 0.08);
+}
+
+.neu-card:hover,
+.glass-card:hover,
+.branch-card:hover,
+.official-social-link:hover,
+.church-card:hover,
+.casados-pillar:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 80px rgba(26, 18, 13, 0.12);
+    border-color: rgba(201, 146, 81, 0.28);
+}
+
+.home-cream-section,
+.home-page .section-about,
+.home-page .section-schedule,
+.home-social-section,
+.redes-section,
+.biblia-reader-section,
+.biblia-shortcuts-section {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.36), rgba(239, 223, 187, 0.54)),
+        var(--admav-white-soft);
+}
+
+.home-brown-section,
+.footer,
+.redes-cta-section {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(201, 146, 81, 0.18), transparent 38%),
+        linear-gradient(145deg, var(--admav-brown-dark), var(--admav-text-dark));
+}
+
+.home-culture-grid {
+    gap: var(--space-xl);
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+.home-leadership-photo,
+.home-branch-feature,
+.home-branch-mini,
+.branch-story-media,
+.branch-gallery-item {
+    border-radius: var(--radius-2xl);
+}
+
+.redes-page {
+    background: var(--admav-white-soft);
+}
+
+.redes-hero {
+    min-height: clamp(560px, 76vh, 760px);
+}
+
+.redes-grid {
+    gap: clamp(20px, 2vw, 32px);
+}
+
+.rede-card {
+    min-height: 160px;
+    padding: clamp(24px, 4vw, 36px);
+    border-radius: var(--radius-2xl);
+    background: rgba(248, 249, 240, 0.88);
+    border: 1px solid rgba(130, 80, 45, 0.10);
+    box-shadow: 0 20px 60px rgba(26, 18, 13, 0.08);
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.rede-card:hover {
+    border-color: rgba(201, 146, 81, 0.34);
+    box-shadow: 0 28px 80px rgba(26, 18, 13, 0.12);
+}
+
+.rede-card-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 16px;
+    background: rgba(201, 146, 81, 0.16);
+    color: var(--admav-brown-dark);
+}
+
+.rede-card h3 {
+    color: var(--admav-text-dark);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    line-height: 1.15;
+}
+
+.rede-card p,
+.rede-card-cta {
+    display: none;
+}
+
+.redes-cta-panel {
+    border-radius: var(--radius-2xl);
+    background: rgba(248, 249, 240, 0.10);
+    border: 1px solid rgba(248, 249, 240, 0.16);
+}
+
+.redes-cta-panel h2 {
+    color: #FFFFFF;
+}
+
+.redes-cta-panel p {
+    color: rgba(248, 249, 240, 0.76);
+}
+
+.footer-links-group a:hover {
+    color: var(--admav-gold);
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: clamp(56px, 12vw, 80px) 0;
+    }
+
+    .hero {
+        min-height: 760px;
+    }
+
+    .hero-title {
+        font-size: clamp(2.25rem, 11vw, 2.75rem);
+    }
+
+    .hero-content {
+        padding-left: var(--space-lg);
+        padding-right: var(--space-lg);
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .redes-hero {
+        min-height: 620px;
     }
 }

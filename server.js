@@ -100,6 +100,18 @@ createServer((req, res) => {
     return;
   }
 
+  if (extname(requestPath) === '') {
+    const htmlPath = resolve(rootDir, `.${requestPath}.html`);
+    if (htmlPath.startsWith(rootDir) && existsSync(htmlPath) && statSync(htmlPath).isFile()) {
+      if (method === 'HEAD') {
+        sendHeadOnly(res, htmlPath);
+        return;
+      }
+      sendFile(res, htmlPath);
+      return;
+    }
+  }
+
   if (isHtmlNavigation(req, requestPath)) {
     const fallback = join(rootDir, 'index.html');
     if (existsSync(fallback)) {

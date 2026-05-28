@@ -29,12 +29,12 @@
                 <li><a href="index.html" class="nav-link">Início</a></li>
                 <li><a href="sede.html" class="nav-link">Sede</a></li>
                 <li><a href="nossas-igrejas.html" class="nav-link">Igrejas</a></li>
-                <li><a href="redes.html" class="nav-link active">Redes</a></li>
+                <li><a href="/redes" class="nav-link active">Redes</a></li>
                 <li><a href="biblia.html" class="nav-link">Bíblia</a></li>
                 <li><a href="programa-casados.html" class="nav-link">Casados</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="nav-toggle-app" id="navToggle" aria-label="Menu">
+                <button class="nav-toggle-app" id="navToggle" aria-label="Abrir menu" aria-controls="sideDrawer" aria-expanded="false">
                     <i data-lucide="menu"></i>
                 </button>
             </div>
@@ -127,7 +127,7 @@
             <a href="index.html" class="nav-link">Início</a>
             <a href="sede.html" class="nav-link">ADMAV Sede</a>
             <a href="nossas-igrejas.html" class="nav-link">Nossas Igrejas</a>
-            <a href="redes.html" class="nav-link active">Redes</a>
+            <a href="/redes" class="nav-link active">Redes</a>
             <a href="biblia.html" class="nav-link">Bíblia</a>
             <a href="programa-casados.html" class="nav-link">Programa Casados</a>
             <hr class="drawer-divider">
@@ -148,7 +148,7 @@
             <i data-lucide="map-pin"></i>
             <span>Igrejas</span>
         </a>
-        <a href="redes.html" class="bottom-nav-item active">
+        <a href="/redes" class="bottom-nav-item active">
             <i data-lucide="network"></i>
             <span>Redes</span>
         </a>
@@ -161,43 +161,72 @@
 
     <script>
         const redes = [
-            { nome: "Bem-vindo", funcao: "Acolhe quem chega e facilita os primeiros passos na igreja.", icone: "hand-heart" },
-            { nome: "EBD", funcao: "Promove estudo bíblico, doutrina e formação cristã contínua.", icone: "book-open" },
-            { nome: "Level Teen", funcao: "Acompanha adolescentes em comunhão, Palavra e identidade cristã.", icone: "badge" },
-            { nome: "Level Up", funcao: "Conecta jovens em crescimento espiritual, comunhão e propósito.", icone: "rocket" },
-            { nome: "Level Kids", funcao: "Cuida das crianças com ensino bíblico, segurança e linguagem adequada.", icone: "baby" },
-            { nome: "Ministros Sede", funcao: "Serve nas ministrações e apoia a organização dos momentos de culto.", icone: "mic-2" },
-            { nome: "Ceia", funcao: "Prepara e organiza os elementos da ceia com zelo e reverência.", icone: "cup-soda" },
-            { nome: "Estacionamento", funcao: "Orienta o fluxo de chegada e saída para melhorar o acesso à igreja.", icone: "car" },
-            { nome: "Homens", funcao: "Fortalece homens em fé, responsabilidade, comunhão e maturidade espiritual.", icone: "shield" },
-            { nome: "Mulheres", funcao: "Promove comunhão, cuidado, Palavra e fortalecimento espiritual.", icone: "heart" },
-            { nome: "Rede da Família", funcao: "Apoia famílias com comunhão, cuidado e princípios bíblicos para o lar.", icone: "home" },
-            { nome: "Intercessão", funcao: "Sustenta a igreja em oração, clamor e cobertura espiritual.", icone: "flame" },
-            { nome: "Consolidação", funcao: "Acompanha decisões de fé e fortalece a caminhada de novos membros.", icone: "badge-check" },
-            { nome: "Diaconisas", funcao: "Serve a igreja com ordem, cuidado, apoio e atenção aos cultos.", icone: "hands" },
-            { nome: "Diáconos", funcao: "Serve a igreja com apoio, organização e atenção às necessidades dos cultos.", icone: "helping-hand" },
-            { nome: "Louvor", funcao: "Conduz a igreja em adoração, expressão musical e ambiente de culto.", icone: "music" },
-            { nome: "Mídia", funcao: "Cuida da comunicação visual, transmissão, imagem e registros da igreja.", icone: "camera" },
-            { nome: "ADMAV no Lar", funcao: "Promove comunhão e edificação em encontros nos lares.", icone: "house" },
-            { nome: "Dança", funcao: "Expressa adoração por meio de movimento, entrega e sensibilidade espiritual.", icone: "sparkles" },
-            { nome: "Ornamentação", funcao: "Prepara ambientes com beleza, cuidado e identidade visual para cada ocasião.", icone: "flower-2" },
-            { nome: "Recepção", funcao: "Recebe pessoas com atenção, direção e ambiente acolhedor.", icone: "door-open" },
-            { nome: "Manutenção", funcao: "Preserva a estrutura da igreja com cuidado, reparos e organização.", icone: "wrench" },
-            { nome: "Secretaria", funcao: "Organiza documentos, informações e suporte administrativo da igreja.", icone: "file-text" },
-            { nome: "Tesouraria", funcao: "Cuida dos processos financeiros com organização e responsabilidade.", icone: "wallet" },
-            { nome: "IBMAV", funcao: "Oferece formação bíblica e teológica para crescimento ministerial.", icone: "graduation-cap" },
-            { nome: "IBMAV Avançado", funcao: "Aprofunda estudos bíblicos e preparação para serviço cristão.", icone: "library" },
-            { nome: "Conselho de Ética", funcao: "Zela por princípios, conduta e alinhamento institucional.", icone: "scale" },
-            { nome: "Tarde da Vitória", funcao: "Reúne fé, oração, Palavra e fortalecimento espiritual durante a semana.", icone: "sun" }
+            "Bem-vindo",
+            "EBD",
+            "Level Teen",
+            "Level Up",
+            "Level Kids",
+            "Ministros Sede",
+            "Ceia",
+            "Estacionamento",
+            "Homens",
+            "Mulheres",
+            "Rede da Família",
+            "Intercessão",
+            "Consolidação",
+            "Diaconisas",
+            "Diáconos",
+            "Louvor",
+            "Mídia",
+            "ADMAV no Lar",
+            "Dança",
+            "Ornamentação",
+            "Recepção",
+            "Manutenção",
+            "Secretaria",
+            "Tesouraria",
+            "IBMAV",
+            "IBMAV Avançado",
+            "Conselho de Ética",
+            "Tarde da Vitória"
+        ];
+
+        const redeIcons = [
+            "hand-heart",
+            "book-open",
+            "badge",
+            "rocket",
+            "baby",
+            "mic-2",
+            "cup-soda",
+            "car",
+            "shield",
+            "heart",
+            "home",
+            "flame",
+            "badge-check",
+            "hands",
+            "helping-hand",
+            "music",
+            "camera",
+            "house",
+            "sparkles",
+            "flower-2",
+            "door-open",
+            "wrench",
+            "file-text",
+            "wallet",
+            "graduation-cap",
+            "library",
+            "scale",
+            "sun"
         ];
 
         const grid = document.getElementById("redesGrid");
-        grid.innerHTML = redes.map((rede) => `
+        grid.innerHTML = redes.map((rede, index) => `
             <article class="rede-card">
-                <div class="rede-card-icon"><i data-lucide="${rede.icone}"></i></div>
-                <h3>${rede.nome}</h3>
-                <p>${rede.funcao}</p>
-                <a href="#contato-redes" class="rede-card-cta">Conhecer <i data-lucide="arrow-right"></i></a>
+                <div class="rede-card-icon"><i data-lucide="${redeIcons[index]}"></i></div>
+                <h3>${rede}</h3>
             </article>
         `).join("");
     </script>

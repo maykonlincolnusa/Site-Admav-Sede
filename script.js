@@ -90,12 +90,14 @@ function initDrawer() {
     const toggleDrawer = () => {
         const isOpen = drawer.classList.toggle('active');
         overlay?.classList.toggle('active', isOpen);
+        toggle?.setAttribute('aria-expanded', String(isOpen));
         document.body.style.overflow = isOpen ? 'hidden' : '';
     };
 
     const closeDrawer = () => {
         drawer.classList.remove('active');
         overlay?.classList.remove('active');
+        toggle?.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
     };
 
@@ -116,15 +118,20 @@ function initDrawer() {
 
 /* ─── Bottom Nav Active State ─── */
 function initBottomNavActive() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const normalizePath = (value) => {
+        const clean = value.split('#')[0].split('?')[0];
+        const page = clean.split('/').pop() || 'index.html';
+        return page === 'redes' ? 'redes.html' : page;
+    };
+    const currentPage = normalizePath(window.location.pathname);
     
     document.querySelectorAll('.bottom-nav-item').forEach(item => {
-        const href = item.getAttribute('href');
+        const href = normalizePath(item.getAttribute('href') || '');
         item.classList.toggle('active', href === currentPage);
     });
 
     document.querySelectorAll('.drawer-nav .nav-link').forEach(link => {
-        const href = link.getAttribute('href');
+        const href = normalizePath(link.getAttribute('href') || '');
         link.classList.toggle('active', href === currentPage);
     });
 }
